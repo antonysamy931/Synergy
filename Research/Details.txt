@@ -1,0 +1,11 @@
+https://www.twilio.com/
+https://app.hubspot.com/login
+https://keys.developer.infusionsoft.com/login/login
+
+Hubspot :
+Contacts,
+Deals
+
+Infusionsoft
+order,
+product
