@@ -1,0 +1,7 @@
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb
