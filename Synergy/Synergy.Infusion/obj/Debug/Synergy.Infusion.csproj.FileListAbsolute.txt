@@ -1,0 +1,12 @@
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.Http.Formatting.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.pdb

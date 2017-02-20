@@ -1,0 +1,6 @@
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Hubspot.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Hubspot.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Hubspot.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.pdb
