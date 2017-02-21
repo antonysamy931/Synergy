@@ -5,3 +5,6 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Ht
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.xml

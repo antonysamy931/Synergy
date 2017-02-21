@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Synergy.Infusion.Model
+namespace Synergy.Common.Model
 {
-    public class AccessToken
+    public class AccessToken : ErrorResponse
     {
         [JsonProperty("access_token")]
         public string Accesstoken { get; set; }

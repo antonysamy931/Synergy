@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Synergy.Common;
+using Synergy.Common.Model;
 using Synergy.Common.Request;
 using Synergy.Common.Utilities;
 using Synergy.Infusion.Model;
@@ -15,10 +17,10 @@ namespace Synergy.Infusion.Api
 {
     public class TokenRequest : ReadConfiguration
     {
-        private static AccessToken _AccessToken { get; set; }
+        private static AccessToken _AccessToken { get; set; }        
 
         public AccessToken RequestAccessToken(string code, Uri redirectUri)
-        {
+        {        
             if (_AccessToken != null) 
             {
                 return _AccessToken;
@@ -35,6 +37,11 @@ namespace Synergy.Infusion.Api
 
             return GetAccessToken(code, redirectUri.ToString());
         }
+        
+        public void RefreshAccessToken()
+        {
+            GetAccessToken(_AccessToken);
+        }
 
         /// <summary>
         /// If already get access token use this method
@@ -49,7 +56,7 @@ namespace Synergy.Infusion.Api
         {
             AccessToken Token = new AccessToken();
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
-            HttpWebResponse response = client.Post(new JsonMessage(null, GetAccessTokenUrl(code, redirectUri)), null, "application/json");
+            HttpWebResponse response = client.Post(new JsonMessage(null, GetAccessTokenUrl(code, redirectUri)), null, EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
             if (response != null && response.StatusCode == HttpStatusCode.OK)
             {
                 var responseStream = response.GetResponseStream();
@@ -65,7 +72,7 @@ namespace Synergy.Infusion.Api
         {
             AccessToken Token = new AccessToken();
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
-            HttpWebResponse response = client.Post(new JsonMessage(null, GetRefreshTokenUrl(token.RefreshToken)), GetAuthenticationToken(), "application/json");
+            HttpWebResponse response = client.Post(new JsonMessage(null, GetRefreshTokenUrl(token.RefreshToken)), GetAuthenticationToken(), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
             if (response != null && response.StatusCode == HttpStatusCode.OK)
             {
                 var responseStream = response.GetResponseStream();

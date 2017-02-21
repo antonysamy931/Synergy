@@ -4,3 +4,9 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Hubs
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\System.Net.Http.Formatting.xml

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Synergy.Common
 {
-    public enum CotentTypes
+    public enum ContentTypes
     {
         [Description("application/json")]
-        JSON
+        JSON,
+        [Description("application/x-www-form-urlencoded")]
+        URLENCODED
     }
 }
