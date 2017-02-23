@@ -51,6 +51,7 @@
     <Compile Include="Enum\RequestTypes.cs" />
     <Compile Include="Model\ErrorResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AttributeUtilities.cs" />
     <Compile Include="Utilities\AuthorizationHeader.cs" />
     <Compile Include="Utilities\ConfigurationReader.cs" />
     <Compile Include="Utilities\EnumUtilities.cs" />

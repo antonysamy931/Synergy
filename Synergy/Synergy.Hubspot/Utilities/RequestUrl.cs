@@ -13,5 +13,6 @@ namespace Synergy.Hubspot.Utilities
         public const string AccessToken = "https://api.hubapi.com/oauth/v1/token";
         public const string AccessTokenInfo = "https://api.hubapi.com/oauth/v1/access-tokens/";
         public const string RefreshTokenInfo = "https://api.hubapi.com/oauth/v1/refresh-tokens/";
+        public const string CreateContact = "contacts/v1/contact/";
     }
 }
