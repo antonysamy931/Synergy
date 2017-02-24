@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Synergy.Infusion.Api;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Synergy.Infusion.Utilities
 {
-    public abstract class ReadConfiguration
+    public abstract class ReadConfiguration : BaseInfusion
     {
         private const string Key = "Infusion.Key";
         private const string Secret = "Infusion.Secret";
@@ -16,18 +17,42 @@ namespace Synergy.Infusion.Utilities
         public const string GrantType = "authorization_code";
         public const string RefreshGrantType = "refresh_token";
 
+        private static string _InfusionKey;
+        private static string _InfusionSecret;
+
+        public ReadConfiguration(string Key, string Secret)
+        {
+            if (!string.IsNullOrEmpty(Key) && !string.IsNullOrEmpty(Secret))
+            {
+                _InfusionKey = Key;
+                _InfusionSecret = Secret;
+            }
+        }
+
         public string InfusionKey
         {
             get
             {
-                try
+                if (string.IsNullOrEmpty(_InfusionKey))
                 {
-                    return ConfigurationManager.AppSettings[Key].ToString();
+                    try
+                    {
+                        return ConfigurationManager.AppSettings[Key].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(string.Format("'{0}' key not found.", Key));
+                    }
                 }
-                catch(Exception ex)
+                else
                 {
-                    throw new Exception(string.Format("'{0}' key not found.", Key));
+                    return _InfusionKey;
                 }
+            }
+
+            private set
+            {
+                value = _InfusionKey;
             }
         }
 
@@ -35,14 +60,26 @@ namespace Synergy.Infusion.Utilities
         {
             get
             {
-                try
+                if (string.IsNullOrEmpty(_InfusionSecret))
                 {
-                    return ConfigurationManager.AppSettings[Secret].ToString();
+                    try
+                    {
+                        return ConfigurationManager.AppSettings[Secret].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(string.Format("'{0}' key not found.", Secret));
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw new Exception(string.Format("'{0}' key not found.", Secret));
+                    return _InfusionSecret;
                 }
+            }
+
+            private set
+            {
+                value = _InfusionSecret;
             }
         }
 

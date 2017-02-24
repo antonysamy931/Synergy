@@ -21,8 +21,27 @@ namespace Synergy.Hubspot.Api
                 case UrlType.Contact:
                     switch (subType)
                     {
-                        case UrlSubType.Add:
+                        case UrlSubType.ContactAdd:
                             url = string.Format("{0}{1}", RequestUrl.BaseUrl, RequestUrl.CreateContact);
+                            break;
+                        case UrlSubType.Contacts:
+                            url = string.Format("{0}{1}", RequestUrl.BaseUrl, RequestUrl.GetAllContact);
+                            break;
+                        case UrlSubType.ContactById:
+                            url = (RequestUrl.BaseUrl + RequestUrl.GetContactById);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case UrlType.Deal:
+                    switch (subType)
+                    {
+                        case UrlSubType.Deals:
+                            url = string.Format("{0}{1}", RequestUrl.BaseUrl, RequestUrl.GetAllDeals);
+                            break;
+                        case UrlSubType.DealById:
+                            url = (RequestUrl.BaseUrl + RequestUrl.GetDealById);
                             break;
                         default:
                             break;

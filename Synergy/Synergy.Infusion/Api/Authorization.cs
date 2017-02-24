@@ -10,6 +10,11 @@ namespace Synergy.Infusion.Api
 {
     public class Authorization : ReadConfiguration
     {
+        public Authorization(string Key, string Secret)
+            : base(Key, Secret)
+        {
+        }
+
         public Uri GetAuthorizationUrl(Uri redirectUri, string[] scopes)
         {
             string Scopes = string.Empty;

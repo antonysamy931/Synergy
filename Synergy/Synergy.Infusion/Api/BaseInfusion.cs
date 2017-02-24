@@ -12,6 +12,8 @@ namespace Synergy.Infusion.Api
 {
     public abstract class BaseInfusion
     {
+        public static AccessToken _AccessToken { get; set; }
+
         public string GetUrl(string request)
         {
             if (request.Contains('?'))
@@ -22,14 +24,8 @@ namespace Synergy.Infusion.Api
         }
 
         public string GetAccessToken()
-        {
-            AccessToken token = new TokenRequest().GetAccessToken();
-            return token.Accesstoken;
-        }
-
-        public string GetAuthorizationToken()
-        {
-            return AuthorizationHeader.GetAuthorizationToken(GetAccessToken());
+        {            
+            return _AccessToken.Accesstoken;
         }
     }
 }

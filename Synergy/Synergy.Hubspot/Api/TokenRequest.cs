@@ -14,7 +14,12 @@ using System.Threading.Tasks;
 namespace Synergy.Hubspot.Api
 {
     public class TokenRequest : ReadConfiguration
-    {        
+    {
+        public TokenRequest(string Key = "", string Secret = "")
+            : base(Key, Secret)
+        {
+        }
+
         private static string RedirectUri { get; set; }
 
         public AccessToken RequestAccessToken(string code, Uri redirectUri)

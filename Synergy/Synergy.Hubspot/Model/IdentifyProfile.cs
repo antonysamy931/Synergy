@@ -13,5 +13,9 @@ namespace Synergy.Hubspot.Model
         public List<Identify> Identifies { get; set; }
         [JsonProperty("vid")]
         public long Vid { get; set; }
+        [JsonProperty("savedattimestamp")]
+        public long SaveDattimeStamp { get; set; }
+        [JsonProperty("deletedchangedtimestamp")]
+        public int DeletedChangedTimeStamp { get; set; }
     }
 }

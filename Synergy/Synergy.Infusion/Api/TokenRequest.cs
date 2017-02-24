@@ -17,11 +17,14 @@ namespace Synergy.Infusion.Api
 {
     public class TokenRequest : ReadConfiguration
     {
-        private static AccessToken _AccessToken { get; set; }        
+        public TokenRequest(string Key = "", string Secret = "")
+            : base(Key, Secret)
+        {
+        }
 
         public AccessToken RequestAccessToken(string code, Uri redirectUri)
-        {        
-            if (_AccessToken != null) 
+        {
+            if (_AccessToken != null)
             {
                 return _AccessToken;
             }
@@ -37,7 +40,7 @@ namespace Synergy.Infusion.Api
 
             return GetAccessToken(code, redirectUri.ToString());
         }
-        
+
         public void RefreshAccessToken()
         {
             GetAccessToken(_AccessToken);

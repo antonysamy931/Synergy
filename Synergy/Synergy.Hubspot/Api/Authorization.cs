@@ -10,6 +10,12 @@ namespace Synergy.Hubspot.Api
 {
     public class Authorization : ReadConfiguration
     {
+        public Authorization(string hubKey = "", string hubSecret = "")
+            : base(hubKey, hubSecret)
+        {
+
+        }
+
         public Uri GetAuthorizationUrl(Uri redirectUri, string[] scopes)
         {
             string Scopes = string.Empty;

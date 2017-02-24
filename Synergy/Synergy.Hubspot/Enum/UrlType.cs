@@ -8,11 +8,17 @@ namespace Synergy.Hubspot.Enum
 {
     public enum UrlType
     {
-        Contact
+        Contact,
+        Deal
     }
 
     public enum UrlSubType
     {
-        Add
+        ContactAdd,
+        Contacts,
+        ContactById,
+        Deals,
+        DealById
     }
+
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Synergy.Hubspot.Utilities
 {
     public abstract class ReadConfiguration : BaseHubspot
-    {        
+    {
         private const string Key = "Hubspot.Key";
         private const string Secret = "Hubspot.Secret";
 
@@ -17,18 +17,42 @@ namespace Synergy.Hubspot.Utilities
         public const string GrantType = "authorization_code";
         public const string RefreshGrantType = "refresh_token";
 
+        private static string _HubKey;
+        private static string _HubSecret;
+        
+        public ReadConfiguration(string hubKey, string hubSecret)
+        {
+            if (!string.IsNullOrEmpty(hubKey) && !string.IsNullOrEmpty(hubSecret))
+            {
+                _HubKey = hubKey;
+                _HubSecret = hubSecret;
+            }
+        }
+        
         public string HubspotClientID
         {
             get
             {
-                try
+                if (string.IsNullOrEmpty(_HubKey))
                 {
-                    return ConfigurationManager.AppSettings[Key].ToString();
+                    try
+                    {
+                        return ConfigurationManager.AppSettings[Key].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(string.Format("'{0}' key not found.", Key));
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw new Exception(string.Format("'{0}' key not found.", Key));
+                    return _HubKey;
                 }
+            }
+
+            private set
+            {
+                value = _HubKey;
             }
         }
 
@@ -36,14 +60,26 @@ namespace Synergy.Hubspot.Utilities
         {
             get
             {
-                try
+                if (string.IsNullOrEmpty(_HubSecret))
                 {
-                    return ConfigurationManager.AppSettings[Secret].ToString();
+                    try
+                    {
+                        return ConfigurationManager.AppSettings[Secret].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(string.Format("'{0}' key not found.", Secret));
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw new Exception(string.Format("'{0}' key not found.", Secret));
+                    return _HubSecret;
                 }
+            }
+
+            private set
+            {
+                value = _HubSecret;
             }
         }
 
