@@ -10,3 +10,15 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Newtonsoft.
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.Http.Formatting.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.dll.config
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Infusion.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Common.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Common.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.pdb

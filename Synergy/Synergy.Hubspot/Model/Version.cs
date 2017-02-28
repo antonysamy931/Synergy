@@ -20,6 +20,6 @@ namespace Synergy.Hubspot.Model
         [JsonProperty("source-type")]
         public string SourceType { get; set; }
         [JsonProperty("source-id")]
-        public int SourceId { get; set; }
+        public string SourceId { get; set; }
     }
 }
