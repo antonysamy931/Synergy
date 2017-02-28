@@ -59,7 +59,8 @@ namespace Synergy.Infusion.Api
         {
             AccessToken Token = new AccessToken();
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
-            HttpWebResponse response = client.Post(new JsonMessage(null, GetAccessTokenUrl(code, redirectUri)), null, EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
+            var Content = string.Format("client_id={0}&client_secret={1}&code={2}&grant_type={3}&redirect_uri={4}", InfusionKey, InfusionSecret, code, GrantType, redirectUri);
+            HttpWebResponse response = client.Post(new JsonMessage(Encoding.UTF8.GetBytes(Content), GetAccessTokenUrl()), null, EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.URLENCODED));
             if (response != null && response.StatusCode == HttpStatusCode.OK)
             {
                 var responseStream = response.GetResponseStream();
@@ -74,7 +75,7 @@ namespace Synergy.Infusion.Api
         private AccessToken GetAccessToken(AccessToken token)
         {
             AccessToken Token = new AccessToken();
-            Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
+            Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();            
             HttpWebResponse response = client.Post(new JsonMessage(null, GetRefreshTokenUrl(token.RefreshToken)), GetAuthenticationToken(), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
             if (response != null && response.StatusCode == HttpStatusCode.OK)
             {
@@ -87,9 +88,9 @@ namespace Synergy.Infusion.Api
             return Token;
         }
 
-        private string GetAccessTokenUrl(string code, string redirectUri)
+        private string GetAccessTokenUrl()
         {
-            return string.Format("{0}?client_id={1}&client_secret={2}&code={3}&grant_type={4}&redirect_uri={5}", RequestUrl.AccessToken, InfusionKey, InfusionSecret, code, GrantType, redirectUri);
+            return string.Format("{0}", RequestUrl.AccessToken);
         }
 
         private string GetRefreshTokenUrl(string refreshToken)
