@@ -34,6 +34,6 @@ namespace Synergy.Infusion.Model
         public float Price { get; set; }
 
         [JsonProperty("discount")]
-        public float Discount { get; set; }
+        public float? Discount { get; set; }
     }
 }

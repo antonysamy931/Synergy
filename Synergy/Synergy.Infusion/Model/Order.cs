@@ -19,7 +19,7 @@ namespace Synergy.Infusion.Model
         public string Status { get; set; }
 
         [JsonProperty("recurring")]
-        public bool Recurring { get; set; }
+        public bool? Recurring { get; set; }
 
         [JsonProperty("total")]
         public float Total { get; set; }
