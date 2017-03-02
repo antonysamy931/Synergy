@@ -1,0 +1,6 @@
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.exe.config
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.exe
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.exe
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.pdb
