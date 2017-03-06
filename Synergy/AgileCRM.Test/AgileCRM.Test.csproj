@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Synergy.AgileCRM\Synergy.AgileCRM.csproj">
+      <Project>{1eceaf0c-b7a2-4695-be76-2d7a78f84253}</Project>
+      <Name>Synergy.AgileCRM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Common\Synergy.Common.csproj">
+      <Project>{2b12f053-e959-4590-9e77-f53f6dd86a57}</Project>
+      <Name>Synergy.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

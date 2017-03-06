@@ -103,6 +103,12 @@ namespace Synergy.Common.Request
             GETRequest.Method = RequestTypes.GET.ToString();
             try
             {
+                if (!string.IsNullOrEmpty(contentType))
+                {
+                    GETRequest.ContentType = contentType;
+                    GETRequest.Accept = contentType;
+                }
+
                 if (!string.IsNullOrEmpty(authToken))
                 {
                     GETRequest.Headers.Add("Authorization", authToken);
