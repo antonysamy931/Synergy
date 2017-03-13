@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -108,7 +109,7 @@ namespace Synergy.AgileCRM.Api
             }
         }
 
-        public string GetUrl(string request)
+        protected string GetUrl(string request)
         {
             if (AgileUrl.Substring(AgileUrl.Length - 1).Equals("/"))
                 return string.Format("{0}dev/api/{1}", AgileUrl, request);
@@ -116,10 +117,29 @@ namespace Synergy.AgileCRM.Api
                 return string.Format("{0}/dev/api/{1}", AgileUrl, request);
         }
 
-        public string GetAuthorization()
+        protected string GetAuthorization()
         {
             String encoded = System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(AgileEmail + ":" + AgileKey));
             return "Basic " + encoded;
+        }
+
+        protected string GetJson(object model)
+        {
+            return JsonConvert.SerializeObject(
+                        model,
+                        new JsonSerializerSettings()
+                        {
+                            NullValueHandling = NullValueHandling.Ignore,
+                            DefaultValueHandling = DefaultValueHandling.Ignore,
+                            Converters = new List<Newtonsoft.Json.JsonConverter> {
+                            new Newtonsoft.Json.Converters.StringEnumConverter()
+                        }
+                        });
+        }        
+
+        public byte[] GetBytes(object model)
+        {
+            return System.Text.Encoding.UTF8.GetBytes(GetJson(model));
         }
     }
 }

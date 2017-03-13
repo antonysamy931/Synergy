@@ -28,5 +28,35 @@ namespace Synergy.Common.Utilities
                 Description = DiscriptionAttribute.Description;
             return string.IsNullOrEmpty(Description) ? propertyInfo.Name : Description;
         }
+
+        public static string GetTypeValue(PropertyInfo propertyInfo, Type attributeType)
+        {
+            string TypeValue = string.Empty;
+            object Attribute = propertyInfo.GetCustomAttribute(attributeType);
+            dynamic CustomAttribute = Attribute;
+            if (CustomAttribute != null)
+                TypeValue = CustomAttribute.Type;
+            return TypeValue;
+        }
+
+        public static string GetSubTypeValue(PropertyInfo propertyInfo, Type attributeType)
+        {
+            string SubTypeValue = string.Empty;
+            object Attribute = propertyInfo.GetCustomAttribute(attributeType);
+            dynamic CustomAttribute = Attribute;
+            if (CustomAttribute != null)
+                SubTypeValue = CustomAttribute.SubType;
+            return SubTypeValue;
+        }
+
+        public static string GetName(PropertyInfo propertyInfo, Type attributeType)
+        {
+            string NameValue = string.Empty;
+            object Attribute = propertyInfo.GetCustomAttribute(attributeType);
+            dynamic CustomAttribute = Attribute;
+            if (CustomAttribute != null)
+                NameValue = CustomAttribute.Name;
+            return NameValue;
+        }
     }
 }

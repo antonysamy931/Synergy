@@ -12,3 +12,17 @@ C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\Sy
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Common.pdb
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.exe.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.exe
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.exe
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\AgileCRM.Test.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.AgileCRM.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.AgileCRM.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\System.Net.Http.Formatting.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.csprojResolveAssemblyReference.cache

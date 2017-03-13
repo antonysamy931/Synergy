@@ -49,4 +49,24 @@ namespace Synergy.AgileCRM.Model
         public Owner owner { get; set; }
         public object[] contacts { get; set; }
     }
+
+    public class DealRequest
+    {
+        public string name { get; set; }
+        public long expected_value { get; set; }
+        public int probability { get; set; }
+        public long close_date { get; set; }
+        public string milestone { get; set; }
+        public List<long> contact_ids { get; set; }        
+    }
+
+    public class UpdateDealRequest
+    {
+        public long id { get; set; }
+        public string name { get; set; }
+        public long expected_value { get; set; }
+        public int probability { get; set; }        
+        public string milestone { get; set; }
+        public List<long> contact_ids { get; set; }       
+    }
 }

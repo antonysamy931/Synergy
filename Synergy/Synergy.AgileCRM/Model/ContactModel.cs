@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Synergy.Common.CustomAttribute;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,5 +90,52 @@ namespace Synergy.AgileCRM.Model
         public string name { get; set; }
         public string value { get; set; }
         public string subtype { get; set; }
+    }
+
+    public class UpdateContactRequest
+    {
+        public long Id { get; set; }
+        public ContactProperty Property { get; set; }
+    }
+
+    public class CreateContactRequest
+    {        
+        public int StarValue { get; set; }     
+        public int LeadScore { get; set; }        
+        public string[] Tags { get; set; }
+        public ContactProperty Property { get; set; }
+    }
+
+    public class ContactProperty
+    {
+        [PropertyAttribute(Type = "SYSTEM", Name = "first_name")]
+        public string FirstName { get; set; }
+        [PropertyAttribute(Type = "SYSTEM", Name = "last_name")]
+        public string LastName { get; set; }
+        [PropertyAttribute(Type = "SYSTEM", Name = "email", SubType = "work")]
+        public string Email { get; set; }
+        [PropertyAttribute(Type = "SYSTEM", Name = "address")]
+        public Address Address { get; set; }
+        [PropertyAttribute(Name = "phone", SubType = "work")]
+        public string Phone_Work { get; set; }
+        [PropertyAttribute(Name = "phone", SubType = "home")]
+        public string Phone_Home { get; set; }
+        [PropertyAttribute(Name = "website", SubType = "YOUTUBE")]
+        public string YouTube { get; set; }
+        [PropertyAttribute(Name = "website", SubType = "LINKEDIN")]
+        public string LinkedIn { get; set; }
+        [PropertyAttribute(Name = "website", SubType = "URL")]
+        public string Url { get; set; }
+        [PropertyAttribute(Type = "CUSTOM", Name = "List of companies associated")]
+        public string[] Companies { get; set; }
+    }
+
+    public class Address
+    {
+        public string address { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zip { get; set; }
+        public string country { get; set; }
     }
 }

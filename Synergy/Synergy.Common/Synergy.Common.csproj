@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomAttribute\PropertyAttribute.cs" />
     <Compile Include="Model\AccessToken.cs" />
     <Compile Include="Enum\CotentTypes.cs" />
     <Compile Include="Enum\RequestTypes.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Utilities\ConfigurationReader.cs" />
     <Compile Include="Utilities\EnumUtilities.cs" />
     <Compile Include="Utilities\IContentType.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
     <Compile Include="Utilities\JsonMessage.cs" />
     <Compile Include="Utilities\TextMessage.cs" />
     <Compile Include="Request\WebClient.cs" />

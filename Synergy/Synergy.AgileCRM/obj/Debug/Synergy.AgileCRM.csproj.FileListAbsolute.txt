@@ -10,3 +10,15 @@ C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.AgileCRM\obj\Debug
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.dll
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.pdb
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.AgileCRM.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.AgileCRM.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.AgileCRM.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.AgileCRM.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\System.Net.Http.Formatting.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.pdb
