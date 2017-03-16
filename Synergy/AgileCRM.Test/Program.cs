@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Synergy.AgileCRM.Utility;
 using Synergy.Common.Utilities;
+using CookComputing.XmlRpc;
 
 namespace AgileCRM.Test
 {
@@ -17,6 +18,7 @@ namespace AgileCRM.Test
     {
         static void Main(string[] args)
         {
+            #region test
             //string key = "a1kb49qb3b3cos9dnmde38n43l";
             //string email = "aaron@synergyframeworks.com";
             //string url = "https://synergyframeworks.agilecrm.com/";
@@ -120,7 +122,7 @@ namespace AgileCRM.Test
             //    response.Close();
             //}
 
-            DealApi dealapi = new DealApi("kesfef51bnhrdqaud0l3siecbv", "antonysamy931@gmail.com", "https://antonysamy.agilecrm.com/");
+            //DealApi dealapi = new DealApi("kesfef51bnhrdqaud0l3siecbv", "antonysamy931@gmail.com", "https://antonysamy.agilecrm.com/");
             //DealRequest request = new DealRequest()
             //{
             //    name = "Deal-Tomato",
@@ -153,7 +155,42 @@ namespace AgileCRM.Test
 
             //var deal = dealapi.UpdateDeal(request);
 
-            dealapi.DeleteDeal(5651124426113024);
+            //dealapi.DeleteDeal(5651124426113024);
+            #endregion
+
+            string Key = "486a702729e365e137ac988ad054fbb8";
+            iFace proxy = XmlRpcProxyGen.Create<iFace>();
+
+            XmlRpcStruct conDat = new XmlRpcStruct();
+            conDat.Add("FirstName", "Test J");
+            conDat.Add("LastName", "Test K");
+            conDat.Add("Email", "Test@g.com");
+
+            //make the call to add the contact.
+            try
+            {
+                var result = proxy.Add(Key, conDat);
+
+            }
+            catch (Exception ex)
+            {
+            }
+
         }
+
+        
     }
+
+    [XmlRpcUrl("https://yu358.infusionsoft.com:443/api/xmlrpc")]
+    public interface iFace : IXmlRpcProxy
+    {
+        [XmlRpcMethod("ContactService.add")]
+        int Add(string key, XmlRpcStruct map);
+
+        [XmlRpcMethod("ContactService.addToGroup")]
+        bool AddGrp(string key, int conID, int grpID);
+
+        [XmlRpcMethod("ContactService.addToCampaign")]
+        bool AddCamp(string key, int conID, int campID);
+    } 
 }

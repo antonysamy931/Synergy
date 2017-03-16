@@ -26,3 +26,4 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Common
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Newtonsoft.Json.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\System.Net.Http.Formatting.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\CookComputing.XmlRpcV2.dll
