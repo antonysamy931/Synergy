@@ -10,3 +10,8 @@ Infusionsoft
 order,
 product
 
+infusionsoft xmlrpc implementation:
+https://github.com/infusionsoft/API-Sample-Code/blob/master/DOTNET/C%23%20Sample.cs
+nuget
+https://www.nuget.org/packages/xmlrpcnet/
+
