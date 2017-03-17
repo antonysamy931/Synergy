@@ -17,6 +17,7 @@ namespace Synergy.Hubspot.Enum
         ContactAdd,
         Contacts,
         ContactById,
+        ContactDeleteById,
         Deals,
         DealById
     }

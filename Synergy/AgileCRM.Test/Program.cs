@@ -11,6 +11,12 @@ using System.Threading.Tasks;
 using Synergy.AgileCRM.Utility;
 using Synergy.Common.Utilities;
 using CookComputing.XmlRpc;
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.CodeDom;
+using System.Reflection.Emit;
+using System.Reflection;
+using System.ComponentModel;
 
 namespace AgileCRM.Test
 {
@@ -158,29 +164,38 @@ namespace AgileCRM.Test
             //dealapi.DeleteDeal(5651124426113024);
             #endregion
 
-            string Key = "486a702729e365e137ac988ad054fbb8";
-            iFace proxy = XmlRpcProxyGen.Create<iFace>();
 
-            XmlRpcStruct conDat = new XmlRpcStruct();
-            conDat.Add("FirstName", "Test J");
-            conDat.Add("LastName", "Test K");
-            conDat.Add("Email", "Test@g.com");
 
-            //make the call to add the contact.
-            try
-            {
-                var result = proxy.Add(Key, conDat);
+            //string Key = "486a702729e365e137ac988ad054fbb8";
+            //iFace proxy = XmlRpcProxyGen.Create<iFace>();
 
-            }
-            catch (Exception ex)
-            {
-            }
+            //XmlRpcStruct conDat = new XmlRpcStruct();
+            //conDat.Add("FirstName", "Test J");
+            //conDat.Add("LastName", "Test K");
+            //conDat.Add("Email", "Test@g.com");
 
+            ////make the call to add the contact.
+            //try
+            //{
+            //    var result = proxy.Add(Key, conDat);
+
+            //}
+            //catch (Exception ex)
+            //{
+            //}
+
+            Type t = typeof(iFace);
+            object Attribute = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+            dynamic uriAttribute = (XmlRpcUrlAttribute)Attribute;
+            
+            var attr = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+            //attr.GetType().GetProperty("Uri").SetValue(attr, "test");
+            //var constructor = attr.GetType().GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
+            //var attr2 = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+
+            var constructor = typeof(XmlRpcUrlAttribute).GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
         }
-
-        
     }
-
     [XmlRpcUrl("https://yu358.infusionsoft.com:443/api/xmlrpc")]
     public interface iFace : IXmlRpcProxy
     {
@@ -192,5 +207,6 @@ namespace AgileCRM.Test
 
         [XmlRpcMethod("ContactService.addToCampaign")]
         bool AddCamp(string key, int conID, int campID);
-    } 
+    }
+
 }

@@ -27,3 +27,7 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Newtonsoft.Jso
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\System.Net.Http.Formatting.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\obj\Debug\AgileCRM.Test.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\CookComputing.XmlRpcV2.dll
+<<<<<<< HEAD
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\CookComputing.XmlRpcV2.dll
+=======
+>>>>>>> 75220cf6a59e3f92603c399b60c14a0785ca2f16

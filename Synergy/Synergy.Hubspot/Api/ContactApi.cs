@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Synergy.Hubspot.Utilities;
 
 namespace Synergy.Hubspot.Api
 {
@@ -18,7 +19,12 @@ namespace Synergy.Hubspot.Api
     {
         public ContactResponse AddContact(ContactModel model)
         {
-            return new ContactResponse();
+            return Add(model);
+        }
+
+        public ContactResponse UpdateContact(ContactModel model, string uid)
+        {
+            return Update(uid, model);
         }
 
         public ContactsResponse GetContacts()
@@ -31,24 +37,51 @@ namespace Synergy.Hubspot.Api
             return GetContact(string.Format(GetUrl(UrlType.Contact, UrlSubType.ContactById), uid));
         }
 
-        #region Private
-
-        private void Add(ContactModel model)
+        public void DeleteContact(long uid)
         {
-            string url = GetUrl(UrlType.Contact, UrlSubType.ContactAdd);
+            Delete(string.Format(GetUrl(UrlType.Contact, UrlSubType.ContactDeleteById), uid));
         }
 
-        private ContactRequest Prepare(ContactModel model)
+        #region Private
+
+        private ContactResponse Add(ContactModel model)
         {
-            Type modelType = model.GetType();
-            List<Property> Properties = new List<Property>();
-            foreach (var property in modelType.GetProperties())
+            ContactResponse Contact = new ContactResponse();
+            string url = GetUrl(UrlType.Contact, UrlSubType.ContactAdd);
+            ContactRequest request = new ContactRequest()
             {
-                Property oProperty = new Property();
-                oProperty.PropertyName = AttributeUtilities.GetDescription<DescriptionAttribute>(property);
-                oProperty.Value = Convert.ToString(property.GetValue(model));
+                Properties = model.ToProperties()
+            };
+            Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
+            HttpWebResponse response = client.Post(JsonConvert.SerializeObject(request), url, AuthorizationHeader.GetAuthorizationToken(_AccessToken.Accesstoken), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                Contact = JsonConvert.DeserializeObject<ContactResponse>(rawResponse);
             }
-            return new ContactRequest() { Properties = Properties };
+            return Contact;
+        }
+
+        private ContactResponse Update(string uid, ContactModel model)
+        {
+            ContactResponse Contact = new ContactResponse();
+            string url = string.Format(GetUrl(UrlType.Contact, UrlSubType.ContactById), uid);
+            ContactRequest request = new ContactRequest()
+            {
+                Properties = model.ToProperties()
+            };
+            Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
+            HttpWebResponse response = client.Post(JsonConvert.SerializeObject(request), url, AuthorizationHeader.GetAuthorizationToken(_AccessToken.Accesstoken), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                Contact = JsonConvert.DeserializeObject<ContactResponse>(rawResponse);
+            }
+            return Contact;
         }
 
         private ContactsResponse GetContacts(string url)
@@ -79,6 +112,12 @@ namespace Synergy.Hubspot.Api
                 Contact = JsonConvert.DeserializeObject<ContactResponse>(rawResponse);
             }
             return Contact;
+        }
+
+        private void Delete(string url)
+        {            
+            Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
+            HttpWebResponse response = client.Delete(url, EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON), AuthorizationHeader.GetAuthorizationToken(_AccessToken.Accesstoken));
         }
 
         #endregion

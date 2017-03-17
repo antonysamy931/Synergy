@@ -19,6 +19,7 @@ namespace Synergy.Hubspot.Utilities
         public const string CreateContact = "contacts/v1/contact/";
         public const string GetAllContact = "contacts/v1/lists/all/contacts/all";
         public const string GetContactById = "contacts/v1/contact/vid/{0}/profile";
+        public const string DeleteContact = "contacts/v1/contact/vid/{0}";
 
         public const string GetAllDeals = "deals/v1/deal/paged";
         public const string GetDealById = "deals/v1/deal/{0}";

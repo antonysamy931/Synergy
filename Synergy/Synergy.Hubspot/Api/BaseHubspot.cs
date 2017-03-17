@@ -30,6 +30,9 @@ namespace Synergy.Hubspot.Api
                         case UrlSubType.ContactById:
                             url = (RequestUrl.BaseUrl + RequestUrl.GetContactById);
                             break;
+                        case UrlSubType.ContactDeleteById:
+                            url = (RequestUrl.BaseUrl + RequestUrl.DeleteContact);
+                            break;
                         default:
                             break;
                     }

@@ -2,13 +2,14 @@
 using Synergy.Hubspot.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Synergy.Hubspot.Utilities
 {
-    public class HubSpotUtilities
+    public static class HubSpotUtilities
     {
         public static List<Property> ClassPropertyToDictionary<T>(object classObject)
         {
@@ -20,6 +21,21 @@ namespace Synergy.Hubspot.Utilities
                 string Name = AttributeUtilities.GetDescription<T>(property);
                 propertyModel.PropertyName = string.IsNullOrEmpty(Name) ? property.Name : Name;                
                 propertyModel.Value = Convert.ToString(property.GetValue(classObject));
+                Properties.Add(propertyModel);
+            }
+            return Properties;
+        }
+
+        public static List<Property> ToProperties(this ContactModel model)
+        {
+            List<Property> Properties = new List<Property>();
+            Type ClassType = model.GetType();
+            foreach (var property in ClassType.GetProperties())
+            {
+                Property propertyModel = new Property();
+                string Name = AttributeUtilities.GetDescription<DescriptionAttribute>(property);
+                propertyModel.PropertyName = string.IsNullOrEmpty(Name) ? property.Name : Name;
+                propertyModel.Value = Convert.ToString(property.GetValue(model));
                 Properties.Add(propertyModel);
             }
             return Properties;
