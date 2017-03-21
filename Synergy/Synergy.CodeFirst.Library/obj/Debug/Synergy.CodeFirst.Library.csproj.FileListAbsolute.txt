@@ -1,0 +1,10 @@
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.CodeFirst.Library.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.CodeFirst.Library.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.CodeFirst.Library.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\EntityFramework.SqlServer.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\EntityFramework.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\EntityFramework.SqlServer.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\obj\Debug\Synergy.CodeFirst.Library.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\obj\Debug\Synergy.CodeFirst.Library.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\obj\Debug\Synergy.CodeFirst.Library.pdb

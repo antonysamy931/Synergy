@@ -46,6 +46,9 @@ namespace Synergy.Hubspot.Api
                         case UrlSubType.DealById:
                             url = (RequestUrl.BaseUrl + RequestUrl.GetDealById);
                             break;
+                        case UrlSubType.DealAdd:
+                            url = (RequestUrl.BaseUrl + RequestUrl.AddDeal);
+                            break;
                         default:
                             break;
                     }

@@ -40,5 +40,34 @@ namespace Synergy.Hubspot.Utilities
             }
             return Properties;
         }
+
+        public static List<Property> ToDealProperty(this DealModelProperty model)
+        {
+            List<Property> Properties = new List<Property>();
+            Type ClassType = model.GetType();
+            foreach (var property in ClassType.GetProperties())
+            {
+                Property propertyModel = new Property();
+                string Name = AttributeUtilities.GetDescription<DescriptionAttribute>(property);
+                propertyModel.PropertyName = string.IsNullOrEmpty(Name) ? property.Name : Name;
+                propertyModel.Value = Convert.ToString(property.GetValue(model));
+                if (string.IsNullOrEmpty(propertyModel.Value))
+                    continue;
+                Properties.Add(propertyModel);
+            }
+            return Properties;
+        }
+
+        public static object ToDealRequest(this DealModel model)
+        {
+            return new
+            {
+                associations = new {
+                    associatedCompanyIds = model.AssociationCompanies,
+                    associatedVids = model.AssociationContacts
+                },
+                properties = model.Property.ToDealProperty()
+            };
+        }
     }
 }

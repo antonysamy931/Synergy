@@ -23,5 +23,6 @@ namespace Synergy.Hubspot.Utilities
 
         public const string GetAllDeals = "deals/v1/deal/paged";
         public const string GetDealById = "deals/v1/deal/{0}";
+        public const string AddDeal = "deals/v1/deal";
     }
 }

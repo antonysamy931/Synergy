@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.AgileCRM", "Synergy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileCRM.Test", "AgileCRM.Test\AgileCRM.Test.csproj", "{958BFF77-C67C-493C-9AE8-AE4DA0069735}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.CodeFirst", "Synergy.CodeFirst\Synergy.CodeFirst.csproj", "{EB716CFF-8712-423C-ADC1-4689415016B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.CodeFirst.Library", "Synergy.CodeFirst.Library\Synergy.CodeFirst.Library.csproj", "{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{958BFF77-C67C-493C-9AE8-AE4DA0069735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{958BFF77-C67C-493C-9AE8-AE4DA0069735}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{958BFF77-C67C-493C-9AE8-AE4DA0069735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB716CFF-8712-423C-ADC1-4689415016B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB716CFF-8712-423C-ADC1-4689415016B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB716CFF-8712-423C-ADC1-4689415016B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB716CFF-8712-423C-ADC1-4689415016B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

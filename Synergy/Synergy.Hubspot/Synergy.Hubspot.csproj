@@ -59,6 +59,7 @@
     <Compile Include="Model\ContactProperties.cs" />
     <Compile Include="Model\ContactRequest.cs" />
     <Compile Include="Model\ContactResponse.cs" />
+    <Compile Include="Model\DealModel.cs" />
     <Compile Include="Model\DealProperties.cs" />
     <Compile Include="Model\DealProperty.cs" />
     <Compile Include="Model\DealResponse.cs" />
