@@ -1,0 +1,9 @@
+﻿@model Synergy.CodeFirst.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Create", "User")">Add User</a>
+<a href="@Url.Action("Index", "User")">Users</a>

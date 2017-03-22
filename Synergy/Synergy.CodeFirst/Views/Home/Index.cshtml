@@ -1,0 +1,12 @@
+﻿@model Synergy.CodeFirst.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@if (Synergy.Security.SynergySecurity.IsAdmin())
+{
+    <a href="@Url.Action("Index", "Administration")">Administration</a>
+}

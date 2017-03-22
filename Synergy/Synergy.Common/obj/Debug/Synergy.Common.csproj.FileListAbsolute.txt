@@ -1,13 +1,3 @@
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.pdb
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.dll
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.xml
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll.config
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.dll
-D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll.config
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.pdb
@@ -18,3 +8,13 @@ C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\S
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
 C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll.config
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Newtonsoft.Json.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Http.Formatting.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb

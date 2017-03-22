@@ -8,6 +8,15 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Html.BeginForm("Logoff", "Account"))
+            {
+                <input type="submit" value="Logoff" />
+            }
+        }
+    </div>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
