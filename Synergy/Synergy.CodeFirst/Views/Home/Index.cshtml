@@ -1,12 +1,18 @@
 ﻿@model Synergy.CodeFirst.Models.LoginModel
-
+@using Synergy.Security;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
-@if (Synergy.Security.SynergySecurity.IsAdmin())
+@if (SynergySecurity.IsAdmin())
 {
     <a href="@Url.Action("Index", "Administration")">Administration</a>
+}
+else
+{
+    <a href="@Url.Action("Index","HubSpot")">Hub Spot</a>
+    <a href="@Url.Action("Index","InfusionSoft")">Infusion Soft</a>
+    <a href="@Url.Action("Index","AgileCRM")">Agile CRM</a>
 }

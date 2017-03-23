@@ -128,12 +128,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\AgileCRMController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HubSpotController.cs" />
+    <Compile Include="Controllers\InfusionSoftController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\SynergyAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AgileCrmModel.cs" />
+    <Compile Include="Models\HubSpotModel.cs" />
+    <Compile Include="Models\InfusionSoftModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +236,10 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\AgileCRM\Index.cshtml" />
+    <Content Include="Views\InfusionSoft\Index.cshtml" />
+    <Content Include="Views\HubSpot\Index.cshtml" />
+    <Content Include="Views\AgileCRM\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
