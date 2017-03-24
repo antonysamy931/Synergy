@@ -1,0 +1,30 @@
+﻿@model Synergy.Admin.Models.InfusionSoftModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<fieldset>
+    <legend>InfusionSoftModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Key)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Key)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Secret)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Secret)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Update", new { id=Model.Id }) |
+    @Html.ActionLink("Back", "Index")
+</p>

@@ -1,15 +1,19 @@
-﻿@model Synergy.Admin.Models.AgileCrmModel
+﻿@model Synergy.Admin.Models.InfusionSoftModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Update</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>AgileCrmModel</legend>
+        <legend>InfusionSoftModel</legend>
+
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Key)
@@ -20,23 +24,15 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+            @Html.LabelFor(model => model.Secret)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Url)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Url)
-            @Html.ValidationMessageFor(model => model.Url)
+            @Html.EditorFor(model => model.Secret)
+            @Html.ValidationMessageFor(model => model.Secret)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

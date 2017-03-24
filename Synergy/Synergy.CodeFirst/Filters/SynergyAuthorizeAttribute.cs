@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Synergy.CodeFirst.Filters
+namespace Synergy.Admin.Filters
 {
     public class SynergyAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
     {

@@ -1,11 +1,11 @@
-﻿using Synergy.CodeFirst.Filters;
+﻿using Synergy.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Synergy.CodeFirst.Controllers
+namespace Synergy.Admin.Controllers
 {
     [SynergyAuthorize(Role = "Admin")]
     public class AdministrationController : Controller

@@ -1,4 +1,4 @@
-﻿using Synergy.CodeFirst.Models;
+﻿using Synergy.Admin.Models;
 using Synergy.Security;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Synergy.CodeFirst.Controllers
+namespace Synergy.Admin.Controllers
 {
     public class AccountController : Controller
     {

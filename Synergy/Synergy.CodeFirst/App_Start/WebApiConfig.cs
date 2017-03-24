@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Synergy.CodeFirst
+namespace Synergy.Admin
 {
     public static class WebApiConfig
     {

@@ -1,5 +1,5 @@
-﻿using Synergy.CodeFirst.Filters;
-using Synergy.CodeFirst.Models;
+﻿using Synergy.Admin.Filters;
+using Synergy.Admin.Models;
 using Synergy.Security;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Synergy.CodeFirst.Controllers
+namespace Synergy.Admin.Controllers
 {
     [SynergyAuthorize(Role = "Admin")]
     public class UserController : Controller

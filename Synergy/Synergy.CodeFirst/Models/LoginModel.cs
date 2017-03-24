@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Synergy.CodeFirst.Models
+namespace Synergy.Admin.Models
 {
     public class LoginModel
     {

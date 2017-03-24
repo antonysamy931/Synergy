@@ -35,6 +35,14 @@ namespace Synergy.Security
 
     public class SynergyDbInitializer : DropCreateDatabaseAlways<SynergyDbContext>
     {
+        public override void InitializeDatabase(SynergyDbContext context)
+        {
+            if (!context.Database.Exists())
+            {
+                base.InitializeDatabase(context);
+            }
+        }
+
         protected override void Seed(SynergyDbContext context)
         {            
             context.Synergy_API.Add(new Synergy_Api() { Api = ApiTypes.AgileCrm.ToString() });

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Synergy.CodeFirst
+namespace Synergy.Admin
 {
     public class BundleConfig
     {
