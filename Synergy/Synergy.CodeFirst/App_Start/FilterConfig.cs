@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Synergy.Admin
+namespace Synergy.Admin.New
 {
     public class FilterConfig
     {

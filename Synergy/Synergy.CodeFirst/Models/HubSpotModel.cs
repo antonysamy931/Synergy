@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Synergy.Admin.Models
+namespace Synergy.Admin.New.Models
 {
     public class HubSpotModel
     {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Synergy.Admin
+namespace Synergy.Admin.New
 {
     public class RouteConfig
     {

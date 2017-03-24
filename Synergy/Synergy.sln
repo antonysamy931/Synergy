@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.AgileCRM", "Synergy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileCRM.Test", "AgileCRM.Test\AgileCRM.Test.csproj", "{958BFF77-C67C-493C-9AE8-AE4DA0069735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.Admin", "Synergy.CodeFirst\Synergy.Admin.csproj", "{EB716CFF-8712-423C-ADC1-4689415016B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.Admin.New", "Synergy.CodeFirst\Synergy.Admin.New.csproj", "{EB716CFF-8712-423C-ADC1-4689415016B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synergy.Security", "Synergy.CodeFirst.Library\Synergy.Security.csproj", "{1FFF8F19-0879-47B9-8701-C7AE81B0BD41}"
 EndProject

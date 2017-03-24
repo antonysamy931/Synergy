@@ -1,5 +1,5 @@
-﻿using Synergy.Admin.Filters;
-using Synergy.Admin.Models;
+﻿using Synergy.Admin.New.Filters;
+using Synergy.Admin.New.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Synergy.Security;
 
-namespace Synergy.Admin.Controllers
+namespace Synergy.Admin.New.Controllers
 {
     [SynergyAuthorize(Role = "User")]
     public class AgileCRMController : Controller
