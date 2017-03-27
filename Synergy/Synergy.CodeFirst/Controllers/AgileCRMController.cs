@@ -6,13 +6,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Synergy.Security;
+using Synergy.AgileCRM.Api;
+using Synergy.AgileCRM.Model;
+using Newtonsoft.Json;
 
 namespace Synergy.Admin.New.Controllers
 {
     [SynergyAuthorize(Role = "User")]
     public class AgileCRMController : Controller
     {
+        #region Property
+        ContactApi contactApi = new ContactApi();
+        DealApi dealApi = new DealApi();
+        #endregion
 
+        #region Register
         public ActionResult Index()
         {
             return View();
@@ -26,7 +34,7 @@ namespace Synergy.Admin.New.Controllers
                 string ApiName = ApiTypes.HubSpot.ToString();
                 var api = ctx.Synergy_API.Where(x => x.Api == ApiName).FirstOrDefault();
 
-                model = ctx.Synergy_ApiConfigurations.                    
+                model = ctx.Synergy_ApiConfigurations.
                     Where(x => x.IsActive && x.ApiId == api.Id).
                     Select(x => new AgileCrmModel()
                     {
@@ -166,5 +174,193 @@ namespace Synergy.Admin.New.Controllers
             }
             return RedirectToAction("Index");
         }
+        #endregion
+
+        #region Contact
+        public ActionResult Contacts()
+        {
+            var contacts = contactApi.GetContacts();
+            var model = ToUpdateContactRequestList(contacts);
+            return View("ContactList", model);
+        }
+
+        public ActionResult ContactDetails(long id)
+        {
+            UpdateContactRequest request = null;
+            var model = contactApi.GetContact(id);
+            if (model != null)
+            {
+                request = new UpdateContactRequest()
+                {
+                    Id = model.id,
+                    Property = ToConvertContactProperty(model)
+                };
+            }
+            return View(request ?? new UpdateContactRequest());
+        }
+
+        [HttpGet]
+        public ActionResult EditContact(long id)
+        {
+            UpdateContactRequest request = null;
+            var model = contactApi.GetContact(id);
+            if (model != null)
+            {
+                request = new UpdateContactRequest()
+                {
+                    Id = model.id,
+                    Property = ToConvertContactProperty(model)
+                };
+            }
+            return View(request ?? new UpdateContactRequest());
+        }
+
+        [HttpPost]
+        public ActionResult EditContact(UpdateContactRequest model)
+        {
+            contactApi.UpdateContactProperty(model);
+            return RedirectToAction("Contacts");
+        }
+
+        [HttpGet]
+        public ActionResult ContactDelete(long id)
+        {
+            UpdateContactRequest request = null;
+            var model = contactApi.GetContact(id);
+            if (model != null)
+            {
+                request = new UpdateContactRequest()
+                {
+                    Id = model.id,
+                    Property = ToConvertContactProperty(model)
+                };
+            }
+            return View(request ?? new UpdateContactRequest());
+        }
+
+        [HttpPost]
+        public ActionResult ContactDelete(long id, FormCollection collection)
+        {
+            contactApi.DeleteContact(id);
+            return RedirectToAction("Contacts");
+        }
+
+        [HttpGet]
+        public ActionResult AddContact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddContact(CreateContactRequest model)
+        {
+            contactApi.AddContact(model);
+            return RedirectToAction("Contacts");
+        }
+
+        #endregion
+
+        #region Deal
+        public ActionResult Deals()
+        {
+            var model = dealApi.GetDeals();
+            return View(model);
+        }
+
+        public ActionResult DealDetail(long id)
+        {
+            var deal = dealApi.GetDeal(id);
+            return View(deal);
+        }
+
+        public ActionResult EditDeal(long id)
+        {
+            var deal = dealApi.GetDeal(id);
+            var model = ToUpdateDealRequest(deal);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditDeal(UpdateDealRequest model)
+        {
+            dealApi.UpdateDeal(model);
+            return RedirectToAction("Deals");
+        }
+
+        public ActionResult DeleteDeal(long id)
+        {
+            var deal = dealApi.GetDeal(id);
+            return View(deal);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDeal(long id, FormCollection collection)
+        {
+            dealApi.DeleteDeal(id);
+            return RedirectToAction("Deals");
+        }
+
+        public ActionResult CreateDeal()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateDeal(DealRequest model)
+        {
+            dealApi.AddDeal(model);
+            return RedirectToAction("Deals");
+        }
+
+        #endregion
+
+        #region private
+
+        private List<UpdateContactRequest> ToUpdateContactRequestList(List<Contact> contacts)
+        {
+            List<UpdateContactRequest> model = new List<UpdateContactRequest>();
+            foreach (var item in contacts)
+            {
+                UpdateContactRequest request = new UpdateContactRequest()
+                {
+                    Id = item.id,
+                    Property = ToConvertContactProperty(item)
+                };
+                model.Add(request);
+            }
+            return model;
+        }
+
+        private ContactProperty ToConvertContactProperty(Contact model)
+        {
+            var address = model.properties.Where(x => x.name == "address").Select(x => x.value).FirstOrDefault();
+            return new ContactProperty()
+                    {
+                        Address = address != null ? JsonConvert.DeserializeObject<Address>(address) : new Address(),
+                        Companies = model.properties.Where(x => x.type.ToLower() == "CUSTOM".ToLower() && x.name.ToLower() == "List of companies associated".ToLower()).Select(x => x.value).ToArray(),
+                        Email = model.properties.Where(x => x.name.ToLower() == "email").Select(x => x.value).FirstOrDefault(),
+                        FirstName = model.properties.Where(x => x.name.ToLower() == "first_name").Select(x => x.value).FirstOrDefault(),
+                        LastName = model.properties.Where(x => x.name.ToLower() == "last_name").Select(x => x.value).FirstOrDefault(),
+                        LinkedIn = model.properties.Where(x => x.type.ToLower() == "CUSTOM".ToLower() && x.name.ToLower() == "LINKEDIN".ToLower()).Select(x => x.value).FirstOrDefault(),
+                        Phone_Home = model.properties.Where(x => x.name.ToLower() == "phone" && x.subtype.ToLower() == "home").Select(x => x.value).FirstOrDefault(),
+                        Phone_Work = model.properties.Where(x => x.name.ToLower() == "phone" && x.subtype.ToLower() == "work").Select(x => x.value).FirstOrDefault(),
+                        Url = model.properties.Where(x => x.name.ToLower() == "website" && x.subtype.ToLower() == "url").Select(x => x.value).FirstOrDefault(),
+                        YouTube = model.properties.Where(x => x.name.ToLower() == "website" && x.subtype.ToLower() == "youtube").Select(x => x.value).FirstOrDefault(),
+                    };
+        }
+
+        private UpdateDealRequest ToUpdateDealRequest(Deal model)
+        {
+            return new UpdateDealRequest()
+            {
+                id = model.id,
+                contact_ids = model.contact_ids.Select(x => Convert.ToInt64(x)).ToList(),
+                expected_value = model.expected_value,
+                milestone = model.milestone,
+                name = model.name,
+                probability = model.probability
+            };
+        }
+        #endregion
     }
 }

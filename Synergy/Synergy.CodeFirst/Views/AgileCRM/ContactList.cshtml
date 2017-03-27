@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Synergy.AgileCRM.Model.UpdateContactRequest>
+
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ContactList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.FirstName)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.LastName)
+        </th>
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.Email)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.Phone_Work)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.Phone_Home)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.YouTube)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.LinkedIn)
+        </th>
+
+        <th class="display-label">
+            @Html.DisplayNameFor(model => model.Property.Url)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.FirstName)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.LastName)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.Email)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.Phone_Work)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.Phone_Home)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.YouTube)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.LinkedIn)
+            </td>
+
+            <td class="display-field">
+                @Html.DisplayFor(model => item.Property.Url)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditContact", new { id = item.Id }) |
+                @Html.ActionLink("Details", "ContactDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "ContactDelete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

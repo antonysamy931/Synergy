@@ -1,0 +1,106 @@
+﻿@model Synergy.AgileCRM.Model.CreateContactRequest
+
+@{
+    ViewBag.Title = "AddContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Contact</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CreateContactRequest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StarValue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StarValue)
+            @Html.ValidationMessageFor(model => model.StarValue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LeadScore)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LeadScore)
+            @Html.ValidationMessageFor(model => model.LeadScore)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.FirstName)
+            @Html.ValidationMessageFor(model => model.Property.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.LastName)
+            @Html.ValidationMessageFor(model => model.Property.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.Email)
+            @Html.ValidationMessageFor(model => model.Property.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.Phone_Work)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.Phone_Work)
+            @Html.ValidationMessageFor(model => model.Property.Phone_Work)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.Phone_Home)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.Phone_Home)
+            @Html.ValidationMessageFor(model => model.Property.Phone_Home)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.YouTube)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.YouTube)
+            @Html.ValidationMessageFor(model => model.Property.YouTube)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.LinkedIn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.LinkedIn)
+            @Html.ValidationMessageFor(model => model.Property.LinkedIn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Property.Url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Property.Url)
+            @Html.ValidationMessageFor(model => model.Property.Url)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

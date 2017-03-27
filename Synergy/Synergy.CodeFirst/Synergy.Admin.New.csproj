@@ -48,6 +48,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -73,9 +77,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -254,6 +255,17 @@
     <Content Include="Views\InfusionSoft\Delete.cshtml" />
     <Content Include="Views\HubSpot\Configuration.cshtml" />
     <Content Include="Views\HubSpot\Register.cshtml" />
+    <Content Include="Views\AgileCRM\Contacts.cshtml" />
+    <Content Include="Views\AgileCRM\ContactDetails.cshtml" />
+    <Content Include="Views\AgileCRM\EditContact.cshtml" />
+    <Content Include="Views\AgileCRM\ContactDelete.cshtml" />
+    <Content Include="Views\AgileCRM\AddContact.cshtml" />
+    <Content Include="Views\AgileCRM\ContactList.cshtml" />
+    <Content Include="Views\AgileCRM\Deals.cshtml" />
+    <Content Include="Views\AgileCRM\DealDetail.cshtml" />
+    <Content Include="Views\AgileCRM\EditDeal.cshtml" />
+    <Content Include="Views\AgileCRM\DeleteDeal.cshtml" />
+    <Content Include="Views\AgileCRM\CreateDeal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -262,9 +274,25 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Synergy.AgileCRM\Synergy.AgileCRM.csproj">
+      <Project>{1eceaf0c-b7a2-4695-be76-2d7a78f84253}</Project>
+      <Name>Synergy.AgileCRM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Synergy.CodeFirst.Library\Synergy.Security.csproj">
       <Project>{1fff8f19-0879-47b9-8701-c7ae81b0bd41}</Project>
       <Name>Synergy.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Common\Synergy.Common.csproj">
+      <Project>{2b12f053-e959-4590-9e77-f53f6dd86a57}</Project>
+      <Name>Synergy.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Hubspot\Synergy.Hubspot.csproj">
+      <Project>{f2b2ff7d-50f6-4e40-82f4-59ee24c8d390}</Project>
+      <Name>Synergy.Hubspot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Infusion\Synergy.Infusion.csproj">
+      <Project>{15dc0e70-c282-46c7-a9ca-380f29f2ae29}</Project>
+      <Name>Synergy.Infusion</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

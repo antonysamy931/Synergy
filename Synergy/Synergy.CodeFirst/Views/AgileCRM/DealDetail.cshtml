@@ -1,0 +1,52 @@
+﻿@model Synergy.AgileCRM.Model.Deal
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deal Detail</h2>
+
+<fieldset>
+    <legend>Deal</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.expected_value)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.expected_value)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.milestone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.milestone)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.probability)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.probability)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditDeal", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Deals")
+</p>

@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Synergy.AgileCRM.Model.Contact>
+
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacts</h2>
+
+<p>
+    @Html.ActionLink("Add New Contact", "AddContact")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_contacted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_emailed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_campaign_emaild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_called)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.viewed_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.star_value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lead_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.klout_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entity_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contact_company_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.formId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lead_source_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lead_status_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_lead_converted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lead_converted_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_duplicate_existed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.guid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cursor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_contacted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_emailed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_campaign_emaild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_called)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.viewed_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.star_value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lead_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.klout_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entity_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact_company_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.formId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lead_source_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lead_status_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_lead_converted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lead_converted_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_duplicate_existed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.guid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cursor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditContact", new { id=item.id }) |
+            @Html.ActionLink("Details", "ContactDetails", new { id=item.id }) |
+            @Html.ActionLink("Delete", "ContactDelete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

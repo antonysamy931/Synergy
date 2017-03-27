@@ -1,0 +1,69 @@
+﻿@model Synergy.AgileCRM.Model.UpdateContactRequest
+
+@{
+    ViewBag.Title = "ContactDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>Contact Detail</legend>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.Phone_Work)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.Phone_Work)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.Phone_Home)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.Phone_Home)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.YouTube)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.YouTube)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.LinkedIn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.LinkedIn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.Url)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.Url)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditContact", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Contacts")
+</p>

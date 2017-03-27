@@ -14,10 +14,10 @@ namespace Synergy.AgileCRM.Utility
         {
             return new
             {
-                star_value = model.LeadScore,
-                lead_score = model.StarValue,
-                tags = model.Tags,
-                properties = model.Property.ConvertToPropertyList()
+                star_value = model.StarValue,
+                lead_score = model.LeadScore,
+                tags = model.Tags ?? new string[] { },
+                properties = model.Property.ConvertToPropertyList(create: true)
             };
         }
 

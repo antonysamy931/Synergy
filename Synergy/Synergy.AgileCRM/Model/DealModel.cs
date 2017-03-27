@@ -64,7 +64,7 @@ namespace Synergy.AgileCRM.Model
     {
         public long id { get; set; }
         public string name { get; set; }
-        public long expected_value { get; set; }
+        public float expected_value { get; set; }
         public int probability { get; set; }        
         public string milestone { get; set; }
         public List<long> contact_ids { get; set; }       

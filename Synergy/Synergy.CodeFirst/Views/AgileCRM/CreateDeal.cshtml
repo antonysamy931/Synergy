@@ -1,0 +1,68 @@
+﻿@model Synergy.AgileCRM.Model.DealRequest
+
+@{
+    ViewBag.Title = "CreateDeal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateDeal</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DealRequest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.expected_value)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.expected_value)
+            @Html.ValidationMessageFor(model => model.expected_value)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.probability)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.probability)
+            @Html.ValidationMessageFor(model => model.probability)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.close_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.close_date)
+            @Html.ValidationMessageFor(model => model.close_date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.milestone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.milestone)
+            @Html.ValidationMessageFor(model => model.milestone)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Deals")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

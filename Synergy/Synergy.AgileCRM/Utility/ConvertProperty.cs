@@ -14,7 +14,7 @@ namespace Synergy.AgileCRM.Utility
     {
         private static List<string> DataTypes = new List<string>() { "String", "Boolean", "Int32", "Int64", "Single", "Double" };
 
-        public static dynamic ConvertToPropertyList(this ContactProperty model)
+        public static dynamic ConvertToPropertyList(this ContactProperty model, bool create = false)
         {
             List<dynamic> properties = new List<dynamic>();
             Type type = model.GetType();
@@ -57,7 +57,7 @@ namespace Synergy.AgileCRM.Utility
                 if (!string.IsNullOrEmpty(propName))
                     prop.Add("name", propName);
 
-                if (!string.IsNullOrEmpty(propSubType))
+                if (!string.IsNullOrEmpty(propSubType) && !create)
                 {
                     prop.Add("subtype", "propSubType");
                     subTypeExist = true;

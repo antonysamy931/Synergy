@@ -97,6 +97,7 @@ namespace Synergy.AgileCRM.Api
         {
             Deal Deal = new Deal();
             Synergy.Common.Request.WebClient client = new Common.Request.WebClient();
+            model.contact_ids = model.contact_ids ?? new List<long>();
             string requestData = GetJson(model);
             HttpWebResponse response = client.Put(requestData, GetUrl("opportunity/partial-update"), GetAuthorization(), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON));
             if (response.StatusCode == HttpStatusCode.OK)
