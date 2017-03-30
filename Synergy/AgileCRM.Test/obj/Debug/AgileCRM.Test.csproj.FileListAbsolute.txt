@@ -31,3 +31,7 @@ C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\AgileCRM.Test\bin\Debug\Co
 D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\CookComputing.XmlRpcV2.dll
 =======
 >>>>>>> 75220cf6a59e3f92603c399b60c14a0785ca2f16
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Security.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\Synergy.Security.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\AgileCRM.Test\bin\Debug\EntityFramework.xml

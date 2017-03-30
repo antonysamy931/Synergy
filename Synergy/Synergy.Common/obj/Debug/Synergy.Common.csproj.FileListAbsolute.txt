@@ -18,3 +18,9 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\System.Net.Ht
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\obj\Debug\Synergy.Common.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Security.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\Synergy.Security.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.xml
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.xml

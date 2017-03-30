@@ -22,3 +22,7 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\System.Net.H
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\obj\Debug\Synergy.Hubspot.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Security.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\Synergy.Security.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Hubspot\bin\Debug\EntityFramework.xml

@@ -22,3 +22,7 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\System.Net.
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\obj\Debug\Synergy.AgileCRM.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.Security.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\Synergy.Security.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.AgileCRM\bin\Debug\EntityFramework.xml

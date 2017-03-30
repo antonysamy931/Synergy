@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Synergy.Common.CustomAttribute;
+using Synergy.Common.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,18 +93,54 @@ namespace Synergy.AgileCRM.Model
         public string subtype { get; set; }
     }
 
-    public class UpdateContactRequest
+    public class UpdateContactRequest : SynergyRequest
     {
         public long Id { get; set; }
         public ContactProperty Property { get; set; }
     }
 
-    public class CreateContactRequest
+    public class CreateContactRequest : SynergyRequest
     {        
         public int StarValue { get; set; }     
         public int LeadScore { get; set; }        
         public string[] Tags { get; set; }
         public ContactProperty Property { get; set; }
+    }
+
+    public class GetContactRequest : SynergyRequest
+    {
+        public long Id { get; set; }
+    }
+
+    public class DeleteContactRequest : SynergyRequest
+    {
+        public long Id { get; set; }
+    }
+
+    public class GetContactsRequest : SynergyRequest
+    {
+    }
+
+    public class GetContactsResponse : SynergyResponse
+    {
+        public List<Contact> Contacts { get; set; }
+    }
+
+    public class GetContactResponse : SynergyResponse
+    {
+        public Contact Contact { get; set; }
+    }
+
+    public class AddContactResponse : SynergyResponse
+    {
+    }
+
+    public class UpdateContactResponse : SynergyResponse
+    {
+    }
+
+    public class DeleteContactResponse : SynergyResponse
+    {
     }
 
     public class ContactProperty

@@ -40,6 +40,14 @@ namespace Synergy.Security
             DeleteUser(id);
         }
 
+        public static int GetCurrentUser()
+        {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+                return Convert.ToInt32(HttpContext.Current.User.Identity.Name);
+            else
+                return int.MinValue;
+        }
+
         #region Private
         private static bool LoginUser(string username, string password)
         {

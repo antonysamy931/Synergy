@@ -22,3 +22,7 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\System.Net.
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\obj\Debug\Synergy.Infusion.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Security.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\EntityFramework.dll
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\Synergy.Security.pdb
+D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Infusion\bin\Debug\EntityFramework.xml

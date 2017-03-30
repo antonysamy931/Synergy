@@ -10,6 +10,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Synergy.AgileCRM.Utility;
+using Synergy.Common.Model;
+using Synergy.Common.Enforcer;
 
 namespace Synergy.AgileCRM.Api
 {
@@ -21,36 +23,37 @@ namespace Synergy.AgileCRM.Api
 
         }
 
-        public void AddContact(CreateContactRequest model)
+        public AddContactResponse AddContact(CreateContactRequest model)
         {
-            Create(model);
+            return Create(model);
         }
 
-        public List<Contact> GetContacts()
+        [SynergyEnforcer]
+        public GetContactsResponse GetContacts(GetContactsRequest request)
         {
             return GetContacts(AgileCRMConstant.Contacts);
         }
 
-        public Contact GetContact(long id)
+        public GetContactResponse GetContact(GetContactRequest request)
         {
-            return GetContact(AgileCRMConstant.Contacts + "/" + id);
+            return GetContact(AgileCRMConstant.Contacts + "/" + request.Id);
         }
 
-        public void DeleteContact(long id)
+        public DeleteContactResponse DeleteContact(DeleteContactRequest request)
         {
-            Delete(AgileCRMConstant.Contacts + "/" + id);
+            return Delete(AgileCRMConstant.Contacts + "/" + request.Id);
         }
 
-        public void UpdateContactProperty(UpdateContactRequest model)
+        public UpdateContactResponse UpdateContactProperty(UpdateContactRequest model)
         {
-            Update(AgileCRMConstant.UpdateContactProperties, model);
+            return Update(AgileCRMConstant.UpdateContactProperties, model);
         }
 
         #region Private methods
 
-        private List<Contact> GetContacts(string url)
+        private GetContactsResponse GetContacts(string url)
         {
-            List<Contact> Contacts = new List<Contact>();
+            GetContactsResponse contactsResponse = new GetContactsResponse();           
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
             HttpWebResponse response = client.Get(GetUrl(url), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON), GetAuthorization());
             if (response.StatusCode == HttpStatusCode.OK)
@@ -58,14 +61,24 @@ namespace Synergy.AgileCRM.Api
                 var responseStream = response.GetResponseStream();
                 StreamReader streamReader = new StreamReader(responseStream);
                 string rawResponse = streamReader.ReadToEnd();
-                Contacts = JsonConvert.DeserializeObject<List<Contact>>(rawResponse);
+                var Contacts = JsonConvert.DeserializeObject<List<Contact>>(rawResponse);
+                contactsResponse.Contacts = Contacts;
+                contactsResponse.Status = Status.Success;
             }
-            return Contacts;
+            else
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                contactsResponse.Status = Status.Error;
+                contactsResponse.Message = rawResponse;
+            }
+            return contactsResponse;
         }
 
-        private Contact GetContact(string url)
+        private GetContactResponse GetContact(string url)
         {
-            Contact Contact = new Contact();
+            GetContactResponse contactResponse = new GetContactResponse();
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
             HttpWebResponse response = client.Get(GetUrl(url), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON), GetAuthorization());
             if (response.StatusCode == HttpStatusCode.OK)
@@ -73,13 +86,24 @@ namespace Synergy.AgileCRM.Api
                 var responseStream = response.GetResponseStream();
                 StreamReader streamReader = new StreamReader(responseStream);
                 string rawResponse = streamReader.ReadToEnd();
-                Contact = JsonConvert.DeserializeObject<Contact>(rawResponse);
+                var Contact = JsonConvert.DeserializeObject<Contact>(rawResponse);
+                contactResponse.Contact = Contact;
+                contactResponse.Status = Status.Success;
             }
-            return Contact;
+            else
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                contactResponse.Status = Status.Error;
+                contactResponse.Message = rawResponse;
+            }
+            return contactResponse;
         }
 
-        private void Create(CreateContactRequest model)
+        private AddContactResponse Create(CreateContactRequest model)
         {
+            AddContactResponse synergyResponse = new AddContactResponse();
             Synergy.Common.Request.WebClient client = new Common.Request.WebClient();
             var requestModel = model.ConvertToCreateContactRequest();
             string requestData = GetJson(requestModel);
@@ -90,18 +114,42 @@ namespace Synergy.AgileCRM.Api
                 StreamReader streamReader = new StreamReader(responseStream);
                 string rawResponse = streamReader.ReadToEnd();
                 var Contact = JsonConvert.DeserializeObject<Contact>(rawResponse);
+                synergyResponse.Status = Status.Success;
             }
+            else
+            {
+                synergyResponse.Status = Status.Error;
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                synergyResponse.Message = rawResponse;
+            }
+            return synergyResponse;
         }
 
-        private void Delete(string url)
+        private DeleteContactResponse Delete(string url)
         {
-            Contact Contact = new Contact();
+            DeleteContactResponse deleteResponse = new DeleteContactResponse();
             Synergy.Common.Request.WebClient client = new Synergy.Common.Request.WebClient();
             HttpWebResponse response = client.Delete(GetUrl(url), EnumUtilities.GetDescriptionFromEnumValue(ContentTypes.JSON), GetAuthorization());
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                deleteResponse.Status = Status.Success;
+            }
+            else
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                deleteResponse.Message = rawResponse;
+                deleteResponse.Status = Status.Error;
+            }
+            return deleteResponse;
         }
 
-        private void Update(string url, UpdateContactRequest model)
+        private UpdateContactResponse Update(string url, UpdateContactRequest model)
         {
+            UpdateContactResponse updateResponse = new UpdateContactResponse();
             Synergy.Common.Request.WebClient client = new Common.Request.WebClient();
             var requestModel = model.ConvertToUpdateContactPropertyRequest();
             string requestData = GetJson(requestModel);
@@ -112,7 +160,17 @@ namespace Synergy.AgileCRM.Api
                 StreamReader streamReader = new StreamReader(responseStream);
                 string rawResponse = streamReader.ReadToEnd();
                 var Contact = JsonConvert.DeserializeObject<Contact>(rawResponse);
+                updateResponse.Status = Status.Success;                
             }
+            else
+            {
+                var responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream);
+                string rawResponse = streamReader.ReadToEnd();
+                updateResponse.Message = rawResponse;
+                updateResponse.Status = Status.Error;
+            }
+            return updateResponse;
         }
 
         #endregion
