@@ -1,5 +1,6 @@
 ﻿using Synergy.Admin.New.Filters;
 using Synergy.Admin.New.Models;
+using Synergy.Common.Model;
 using Synergy.Security;
 using System;
 using System.Collections.Generic;

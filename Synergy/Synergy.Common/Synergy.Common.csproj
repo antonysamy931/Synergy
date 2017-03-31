@@ -48,8 +48,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Channels" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,11 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomAttribute\PropertyAttribute.cs" />
-    <Compile Include="Enforcer\EnforcerBehavior.cs" />
-    <Compile Include="Enforcer\SynergyEnforcer.cs" />
     <Compile Include="Model\AccessToken.cs" />
     <Compile Include="Enum\CotentTypes.cs" />
     <Compile Include="Enum\RequestTypes.cs" />
+    <Compile Include="Model\ApiTypes.cs" />
     <Compile Include="Model\ErrorResponse.cs" />
     <Compile Include="Model\SynergyRequest.cs" />
     <Compile Include="Model\SynergyResponse.cs" />
@@ -83,12 +80,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Synergy.CodeFirst.Library\Synergy.Security.csproj">
-      <Project>{1fff8f19-0879-47b9-8701-c7ae81b0bd41}</Project>
-      <Name>Synergy.Security</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Synergy.AgileCRM.Utility;
 using Synergy.Common.Model;
-using Synergy.Common.Enforcer;
 
 namespace Synergy.AgileCRM.Api
 {
@@ -28,7 +27,6 @@ namespace Synergy.AgileCRM.Api
             return Create(model);
         }
 
-        [SynergyEnforcer]
         public GetContactsResponse GetContacts(GetContactsRequest request)
         {
             return GetContacts(AgileCRMConstant.Contacts);

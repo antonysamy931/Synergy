@@ -9,6 +9,7 @@ using Synergy.Security;
 using Synergy.AgileCRM.Api;
 using Synergy.AgileCRM.Model;
 using Newtonsoft.Json;
+using Synergy.Common.Model;
 
 namespace Synergy.Admin.New.Controllers
 {
@@ -191,8 +192,10 @@ namespace Synergy.Admin.New.Controllers
             var request = new GetContactsRequest();
             request.UserId = SynergySecurity.GetCurrentUser();
             request.Api = ApiTypes.AgileCrm;
+            var RecordId = SynergySecurity.ToLog<GetContactsRequest>(request);
             request.Request = "Get Contacts";
             var contacts = contactApi.GetContacts(request);
+            SynergySecurity.ToUpdateLog<GetContactsResponse>(contacts, RecordId);
             var model = ToUpdateContactRequestList(contacts);
             return View("ContactList", model);
         }

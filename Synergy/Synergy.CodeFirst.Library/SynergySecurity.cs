@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Synergy.Common.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Web.Security;
 namespace Synergy.Security
 {
     public class SynergySecurity
-    {        
+    {
         public static bool Login(string username, string password)
         {
             return LoginUser(username, password);
@@ -32,7 +33,7 @@ namespace Synergy.Security
 
         public static void Update(int id, int? age, string email, string firstname, string lastname)
         {
-            UpdateUser(id, age, email, firstname, lastname); 
+            UpdateUser(id, age, email, firstname, lastname);
         }
 
         public static void Delete(int id)
@@ -46,6 +47,31 @@ namespace Synergy.Security
                 return Convert.ToInt32(HttpContext.Current.User.Identity.Name);
             else
                 return int.MinValue;
+        }
+
+        public static int ToLog<T>(T model)
+        {
+            int RecordId = 0;
+            SynergyRequest request = model as SynergyRequest;
+            if (request != null)
+            {
+                using (var context = new SynergyDbContext())
+                {
+                    var ApiId = RequestApi(context, request.Api);
+                    var LogId = RequestLog(context, ApiId, request);
+                    RecordId = RequestHistory(context, LogId, request);
+                }
+            }
+            return RecordId;
+        }
+
+        public static void ToUpdateLog<T>(T model, int historyId)
+        {
+            SynergyResponse response = model as SynergyResponse;
+            if (response != null)
+            {
+                UpdateHistory(historyId, response);
+            }
         }
 
         #region Private
@@ -120,6 +146,78 @@ namespace Synergy.Security
                 _context.SaveChanges();
             }
         }
+
+        private static int RequestApi(SynergyDbContext context, ApiTypes api)
+        {
+            var apiType = context.Synergy_API.Where(x => x.Api == api.ToString() && x.IsActive).FirstOrDefault();
+            if (apiType != null)
+            {
+                return apiType.Id;
+            }
+            else
+            {
+                Synergy_Api addApi = new Synergy_Api()
+                {
+                    Api = api.ToString(),
+                    IsActive = true
+                };
+                context.Synergy_API.Add(addApi);
+                return addApi.Id;
+            }
+        }
+
+        private static int RequestLog(SynergyDbContext context, int apiId, SynergyRequest request)
+        {
+            var logDetail = context.Synergy_ApiRequestLogs.Where(x => x.UserId == request.UserId && x.ApiId == apiId && x.IsActive).FirstOrDefault();
+            if (logDetail != null)
+            {
+                logDetail.Requests = logDetail.Requests + 1;
+                context.SaveChanges();
+                return logDetail.Id;
+            }
+            else
+            {
+                Synergy_ApiRequestLog log = new Synergy_ApiRequestLog()
+                {
+                    ApiId = apiId,
+                    IsActive = true,
+                    Requests = 1,
+                    UserId = request.UserId
+                };
+                context.Synergy_ApiRequestLogs.Add(log);
+                context.SaveChanges();
+                return log.Id;
+            }
+        }
+
+        private static int RequestHistory(SynergyDbContext context, int logId, SynergyRequest request)
+        {
+            Synergy_ApiHistory history = new Synergy_ApiHistory()
+            {
+                IsActive = true,
+                LogId = logId,
+                Request = request.Request,
+                RequestDateTime = DateTime.UtcNow
+            };
+            context.Synergy_ApiHistory.Add(history);
+            context.SaveChanges();
+            return history.Id;
+        }
+
+        private static void UpdateHistory(int historyId, SynergyResponse response)
+        {
+            using (var context = new SynergyDbContext())
+            {
+                var history = context.Synergy_ApiHistory.Where(x => x.Id == historyId && x.IsActive).FirstOrDefault();
+                if (history != null)
+                {
+                    history.Message = string.IsNullOrEmpty(response.Message) ? "Processed successfully." : response.Message;
+                    history.Status = response.Status.ToString();
+                    context.SaveChanges();
+                }
+            }
+        }
+
         #endregion
     }
 }
