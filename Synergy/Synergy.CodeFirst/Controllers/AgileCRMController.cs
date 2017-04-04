@@ -189,11 +189,8 @@ namespace Synergy.Admin.New.Controllers
         #region Contact
         public ActionResult Contacts()
         {
-            var request = new GetContactsRequest();
-            request.UserId = SynergySecurity.GetCurrentUser();
-            request.Api = ApiTypes.AgileCrm;
+            var request = new GetContactsRequest(SynergySecurity.GetCurrentUser());
             var RecordId = SynergySecurity.ToLog<GetContactsRequest>(request);
-            request.Request = "Get Contacts";
             var contacts = contactApi.GetContacts(request);
             SynergySecurity.ToUpdateLog<GetContactsResponse>(contacts, RecordId);
             var model = ToUpdateContactRequestList(contacts);
@@ -203,12 +200,11 @@ namespace Synergy.Admin.New.Controllers
         public ActionResult ContactDetails(long id)
         {
             UpdateContactRequest request = null;
-            var getRequest = new GetContactRequest();
+            var getRequest = new GetContactRequest(SynergySecurity.GetCurrentUser());
             getRequest.Id = id;
-            getRequest.UserId = SynergySecurity.GetCurrentUser();
-            getRequest.Api = ApiTypes.AgileCrm;
-            getRequest.Request = "Get Contact";
+            var RecordId = SynergySecurity.ToLog<GetContactRequest>(getRequest);            
             var model = contactApi.GetContact(getRequest);
+            SynergySecurity.ToUpdateLog<GetContactResponse>(model, RecordId);
             if (model != null)
             {
                 request = new UpdateContactRequest()
@@ -224,12 +220,11 @@ namespace Synergy.Admin.New.Controllers
         public ActionResult EditContact(long id)
         {
             UpdateContactRequest request = null;
-            var getRequest = new GetContactRequest();
+            var getRequest = new GetContactRequest(SynergySecurity.GetCurrentUser());
             getRequest.Id = id;
-            getRequest.UserId = SynergySecurity.GetCurrentUser();
-            getRequest.Api = ApiTypes.AgileCrm;
-            getRequest.Request = "Get Contact";
+            var RecordId = SynergySecurity.ToLog<GetContactRequest>(getRequest);            
             var model = contactApi.GetContact(getRequest);
+            SynergySecurity.ToUpdateLog<GetContactResponse>(model, RecordId);
             if (model != null)
             {
                 request = new UpdateContactRequest()
@@ -246,8 +241,10 @@ namespace Synergy.Admin.New.Controllers
         {
             model.UserId = SynergySecurity.GetCurrentUser();
             model.Api = ApiTypes.AgileCrm;
-            model.Request = "Update Contact";
-            contactApi.UpdateContactProperty(model);
+            model.Request = "Update Contact details";
+            var RecordId = SynergySecurity.ToLog<UpdateContactRequest>(model);
+            UpdateContactResponse response = contactApi.UpdateContactProperty(model);
+            SynergySecurity.ToUpdateLog<UpdateContactResponse>(response, RecordId);
             return RedirectToAction("Contacts");
         }
 
@@ -255,12 +252,11 @@ namespace Synergy.Admin.New.Controllers
         public ActionResult ContactDelete(long id)
         {
             UpdateContactRequest request = null;
-            var getRequest = new GetContactRequest();
+            var getRequest = new GetContactRequest(SynergySecurity.GetCurrentUser());
             getRequest.Id = id;
-            getRequest.UserId = SynergySecurity.GetCurrentUser();
-            getRequest.Api = ApiTypes.AgileCrm;
-            getRequest.Request = "Get Contact";
-            var model = contactApi.GetContact(getRequest);            
+            var RecordId = SynergySecurity.ToLog<GetContactRequest>(getRequest);            
+            var model = contactApi.GetContact(getRequest);
+            SynergySecurity.ToUpdateLog<GetContactResponse>(model, RecordId);            
             if (model != null)
             {
                 request = new UpdateContactRequest()
@@ -275,12 +271,11 @@ namespace Synergy.Admin.New.Controllers
         [HttpPost]
         public ActionResult ContactDelete(long id, FormCollection collection)
         {
-            var request = new DeleteContactRequest();
+            var request = new DeleteContactRequest(SynergySecurity.GetCurrentUser());
             request.Id = id;
-            request.UserId = SynergySecurity.GetCurrentUser();
-            request.Api = ApiTypes.AgileCrm;
-            request.Request = "Delete Contact";
-            contactApi.DeleteContact(request);
+            var RecordId = SynergySecurity.ToLog<DeleteContactRequest>(request);
+            DeleteContactResponse response = contactApi.DeleteContact(request);
+            SynergySecurity.ToUpdateLog<DeleteContactResponse>(response, RecordId);                        
             return RedirectToAction("Contacts");
         }
 
@@ -295,7 +290,7 @@ namespace Synergy.Admin.New.Controllers
         {
             model.UserId = SynergySecurity.GetCurrentUser();
             model.Api = ApiTypes.AgileCrm;
-            model.Request = "Create Contact";
+            model.Request = "Create New Contact";
             contactApi.AddContact(model);
             return RedirectToAction("Contacts");
         }

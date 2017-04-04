@@ -95,12 +95,30 @@ namespace Synergy.AgileCRM.Model
 
     public class UpdateContactRequest : SynergyRequest
     {
+        public UpdateContactRequest()
+        {
+        }
+
+        public UpdateContactRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Update Contact details")
+        {
+        }
+
         public long Id { get; set; }
         public ContactProperty Property { get; set; }
     }
 
     public class CreateContactRequest : SynergyRequest
-    {        
+    {      
+        public CreateContactRequest()
+        {
+        }
+
+        public CreateContactRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Create New Contact")
+        {
+        }
+
         public int StarValue { get; set; }     
         public int LeadScore { get; set; }        
         public string[] Tags { get; set; }
@@ -109,16 +127,43 @@ namespace Synergy.AgileCRM.Model
 
     public class GetContactRequest : SynergyRequest
     {
+        public GetContactRequest()
+        {
+        }
+
+        public GetContactRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Get Contact by Id")
+        {
+        }
+
         public long Id { get; set; }
     }
 
     public class DeleteContactRequest : SynergyRequest
     {
+        public DeleteContactRequest()
+        {
+        }
+
+        public DeleteContactRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Delete Contact by Id")
+        {
+        }
+
         public long Id { get; set; }
     }
 
     public class GetContactsRequest : SynergyRequest
-    {
+    {        
+        public GetContactsRequest()
+        {
+        }
+
+        public GetContactsRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Get Contacts")
+        {
+        }
+
     }
 
     public class GetContactsResponse : SynergyResponse
