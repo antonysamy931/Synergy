@@ -46,3 +46,9 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Sy
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.Common.pdb
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Newtonsoft.Json.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.Common.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Synergy.Common.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst.Library\bin\Debug\System.Net.Http.Formatting.xml

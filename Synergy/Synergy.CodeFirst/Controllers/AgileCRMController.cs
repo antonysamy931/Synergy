@@ -41,7 +41,7 @@ namespace Synergy.Admin.New.Controllers
             List<AgileCrmModel> model = null;
             using (var ctx = new SynergyDbContext())
             {
-                string ApiName = ApiTypes.HubSpot.ToString();
+                string ApiName = ApiTypes.AgileCrm.ToString();
                 var api = ctx.Synergy_API.Where(x => x.Api == ApiName).FirstOrDefault();
 
                 model = ctx.Synergy_ApiConfigurations.

@@ -74,3 +74,11 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst\bin\System.Web.WebPa
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst\obj\Debug\Synergy.Admin.New.csprojResolveAssemblyReference.cache
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst\obj\Debug\Synergy.Admin.New.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.CodeFirst\obj\Debug\Synergy.Admin.New.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.AgileCRM.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Common.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Hubspot.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Infusion.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.AgileCRM.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Common.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Hubspot.pdb
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.CodeFirst\bin\Synergy.Infusion.pdb

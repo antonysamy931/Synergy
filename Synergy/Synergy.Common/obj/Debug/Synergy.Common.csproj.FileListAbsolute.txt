@@ -22,3 +22,7 @@ D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramewo
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.xml
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.dll
 D:\Antony\Prakash\Synergy\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Documents\Prakash\Api\Synergy\Synergy\Synergy.Common\bin\Debug\EntityFramework.SqlServer.xml
