@@ -25,28 +25,77 @@ namespace Synergy.AgileCRM.Utility
                 bool typeExist = false;
                 bool subTypeExist = false;
 
+                propType = AttributeUtilities.GetTypeValue(property, typeof(PropertyAttribute));
+
                 //Assign values
                 if (DataTypes.Any(x => x.ToLower() == property.PropertyType.Name.ToLower()))
                     propValue = Convert.ToString(property.GetValue(model));
                 else
-                    propValue = JsonConvert.SerializeObject(property.GetValue(model),
-                        new JsonSerializerSettings()
+                {
+                    if (property.GetValue(model, null).GetType() == typeof(Dictionary<string, object>))
+                    {
+                        Dictionary<string, object> CustomFields = property.GetValue(model, null) as Dictionary<string, object>;
+                        if (CustomFields != null && CustomFields.Count > 0)
                         {
-                            NullValueHandling = NullValueHandling.Ignore,
-                            DefaultValueHandling = DefaultValueHandling.Ignore,
-                            Converters = new List<Newtonsoft.Json.JsonConverter> {
-                            new Newtonsoft.Json.Converters.StringEnumConverter()
+                            foreach (var item in CustomFields)
+                            {
+                                var CustomValue = JsonConvert.SerializeObject(item.Value,
+                                    new JsonSerializerSettings()
+                                    {
+                                        NullValueHandling = NullValueHandling.Ignore,
+                                        DefaultValueHandling = DefaultValueHandling.Ignore,
+                                        Converters = new List<Newtonsoft.Json.JsonConverter> {
+                                    new Newtonsoft.Json.Converters.StringEnumConverter()
+                                    }
+                                    });
+
+                                if (string.IsNullOrEmpty(CustomValue) || string.Equals(CustomValue, "{}") || string.Equals(CustomValue, "[]"))
+                                    continue;
+                                else                                
+                                {
+                                    if (!string.IsNullOrEmpty(propType))
+                                    {
+                                        properties.Add(new
+                                        {
+                                            type = propType,
+                                            name = item.Key,
+                                            value = CustomValue
+                                        });
+                                    }
+                                    else
+                                    {
+                                        properties.Add(new
+                                        {                                           
+                                            name = item.Key,
+                                            value = CustomValue
+                                        });
+                                    }
+                                }
+                            }
                         }
-                        });
+                        continue;
+                    }
+                    else
+                    {
+                        propValue = JsonConvert.SerializeObject(property.GetValue(model),
+                            new JsonSerializerSettings()
+                            {
+                                NullValueHandling = NullValueHandling.Ignore,
+                                DefaultValueHandling = DefaultValueHandling.Ignore,
+                                Converters = new List<Newtonsoft.Json.JsonConverter> {
+                            new Newtonsoft.Json.Converters.StringEnumConverter()
+                            }
+                            });
+                    }
+                }
+
+                propName = AttributeUtilities.GetName(property, typeof(PropertyAttribute));
+                propSubType = AttributeUtilities.GetSubTypeValue(property, typeof(PropertyAttribute));
 
                 if (propValue == "null" || string.IsNullOrEmpty(propValue))
                     continue;
                 else
                     prop.Add("value", propValue);
-
-                propType = AttributeUtilities.GetTypeValue(property, typeof(PropertyAttribute));
-                propName = AttributeUtilities.GetName(property, typeof(PropertyAttribute));
-                propSubType = AttributeUtilities.GetSubTypeValue(property, typeof(PropertyAttribute));
 
                 if (!string.IsNullOrEmpty(propType))
                 {
@@ -65,7 +114,8 @@ namespace Synergy.AgileCRM.Utility
 
                 if (typeExist && subTypeExist)
                 {
-                    properties.Add(new { 
+                    properties.Add(new
+                    {
                         type = prop["type"],
                         name = prop["name"],
                         value = prop["value"],
@@ -78,18 +128,18 @@ namespace Synergy.AgileCRM.Utility
                     {
                         type = prop["type"],
                         name = prop["name"],
-                        value = prop["value"]                        
+                        value = prop["value"]
                     });
                 }
                 else if (subTypeExist)
                 {
                     properties.Add(new
-                    {                        
+                    {
                         name = prop["name"],
                         value = prop["value"],
                         subtype = prop["subtype"]
                     });
-                }               
+                }
             }
             return properties;
         }

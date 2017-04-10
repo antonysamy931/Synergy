@@ -210,6 +210,8 @@ namespace Synergy.AgileCRM.Model
         public string Url { get; set; }
         [PropertyAttribute(Type = "CUSTOM", Name = "List of companies associated")]
         public string[] Companies { get; set; }
+        [PropertyAttribute(Type = "CUSTOM")]
+        public Dictionary<string, object> CustomAttribute { get; set; }
     }
 
     public class Address
