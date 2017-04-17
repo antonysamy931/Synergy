@@ -102,7 +102,7 @@ namespace AgileCRM.Test
             ////const string url = "https://antonysamy.agilecrm.com/dev/api/opportunity";
             //String encoded = System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("antonysamy931@gmail.com:kesfef51bnhrdqaud0l3siecbv"));
             //HttpWebRequest request = WebRequest.Create("https://antonysamy.agilecrm.com/dev/api/contacts") as HttpWebRequest;
-            //string data = JsonConvert.SerializeObject(model); //"{\"lead_score\":44,  \"tags\":[\"tag1\", \"tag2\"], \"properties\":[{\"type\":\"SYSTEM\", \"name\":\"email\",\"value\":\"jason123@gmail.com\"}, {\"type\":\"SYSTEM\", \"name\":\"first_name\", \"value\":\"First_name\"}, {\"type\":\"SYSTEM\", \"name\":\"last_name\", \"value\":\"Last_name\"}]}";
+            //string data = "{\"properties\":[{\"type\":\"CUSTOM\",\"name\":\"Test\",\"value\":\"Test custom feed\"}]}";//JsonConvert.SerializeObject(model); //"{\"lead_score\":44,  \"tags\":[\"tag1\", \"tag2\"], \"properties\":[{\"type\":\"SYSTEM\", \"name\":\"email\",\"value\":\"jason123@gmail.com\"}, {\"type\":\"SYSTEM\", \"name\":\"first_name\", \"value\":\"First_name\"}, {\"type\":\"SYSTEM\", \"name\":\"last_name\", \"value\":\"Last_name\"}]}";
             //if (!string.IsNullOrEmpty(data))
             //    request.ContentLength = data.Length;
             //request.Method = "POST";
@@ -184,16 +184,34 @@ namespace AgileCRM.Test
             //{
             //}
 
-            Type t = typeof(iFace);
-            object Attribute = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
-            dynamic uriAttribute = (XmlRpcUrlAttribute)Attribute;
-            
-            var attr = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
-            //attr.GetType().GetProperty("Uri").SetValue(attr, "test");
-            //var constructor = attr.GetType().GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
-            //var attr2 = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+            //Type t = typeof(iFace);
+            //object Attribute = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+            //dynamic uriAttribute = (XmlRpcUrlAttribute)Attribute;
 
-            var constructor = typeof(XmlRpcUrlAttribute).GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
+            //var attr = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+            ////attr.GetType().GetProperty("Uri").SetValue(attr, "test");
+            ////var constructor = attr.GetType().GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
+            ////var attr2 = t.GetCustomAttribute(typeof(XmlRpcUrlAttribute));
+
+            //var constructor = typeof(XmlRpcUrlAttribute).GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
+
+            var obj = new A()
+            {
+                H = new B()
+                {
+                    T = false
+                }
+            };
+
+            foreach (var prop in obj.GetType().GetProperties())
+            {
+                var type = prop.GetType();
+                var h = prop.GetValue(obj, null);
+                foreach (var item in type.GetProperties())
+                {
+                    var l = item.GetValue(h, null);
+                }
+            }
         }
     }
     [XmlRpcUrl("https://yu358.infusionsoft.com:443/api/xmlrpc")]
@@ -209,4 +227,13 @@ namespace AgileCRM.Test
         bool AddCamp(string key, int conID, int campID);
     }
 
+    public class A
+    {
+        public B H { get; set; }
+    }
+
+    public class B
+    {
+        public bool T { get; set; }
+    }
 }

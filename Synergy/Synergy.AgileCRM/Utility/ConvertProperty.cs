@@ -39,36 +39,59 @@ namespace Synergy.AgileCRM.Utility
                         {
                             foreach (var item in CustomFields)
                             {
-                                var CustomValue = JsonConvert.SerializeObject(item.Value,
-                                    new JsonSerializerSettings()
-                                    {
-                                        NullValueHandling = NullValueHandling.Ignore,
-                                        DefaultValueHandling = DefaultValueHandling.Ignore,
-                                        Converters = new List<Newtonsoft.Json.JsonConverter> {
-                                    new Newtonsoft.Json.Converters.StringEnumConverter()
-                                    }
-                                    });
+                                #region Key Value Conversion
+                                //var CustomValue = JsonConvert.SerializeObject(item.Value,
+                                //    new JsonSerializerSettings()
+                                //    {
+                                //        NullValueHandling = NullValueHandling.Ignore,
+                                //        DefaultValueHandling = DefaultValueHandling.Ignore,
+                                //        Converters = new List<Newtonsoft.Json.JsonConverter> {
+                                //    new Newtonsoft.Json.Converters.StringEnumConverter()
+                                //    }
+                                //    });
 
-                                if (string.IsNullOrEmpty(CustomValue) || string.Equals(CustomValue, "{}") || string.Equals(CustomValue, "[]"))
-                                    continue;
-                                else                                
+                                //if (string.IsNullOrEmpty(CustomValue) || string.Equals(CustomValue, "{}") || string.Equals(CustomValue, "[]"))
+                                //    continue;
+                                //else                                
+                                //{
+                                //    if (!string.IsNullOrEmpty(propType))
+                                //    {
+                                //        properties.Add(new
+                                //        {
+                                //            type = propType,
+                                //            name = item.Key,
+                                //            value = CustomValue
+                                //        });
+                                //    }
+                                //    else
+                                //    {
+                                //        properties.Add(new
+                                //        {                                           
+                                //            name = item.Key,
+                                //            value = CustomValue
+                                //        });
+                                //    }
+                                //}
+                                #endregion
+
+                                if (item.Value != null)
                                 {
-                                    if (!string.IsNullOrEmpty(propType))
+                                    var ChildObject = item.Value;
+                                    foreach (var childProperty in item.Value.GetType().GetProperties())
                                     {
-                                        properties.Add(new
+                                        propValue = Convert.ToString(childProperty.GetValue(ChildObject, null));
+                                        propType = AttributeUtilities.GetTypeValue(childProperty, typeof(PropertyAttribute));
+                                        propName = AttributeUtilities.GetName(childProperty, typeof(PropertyAttribute));
+
+                                        if (!string.IsNullOrEmpty(propValue))
                                         {
-                                            type = propType,
-                                            name = item.Key,
-                                            value = CustomValue
-                                        });
-                                    }
-                                    else
-                                    {
-                                        properties.Add(new
-                                        {                                           
-                                            name = item.Key,
-                                            value = CustomValue
-                                        });
+                                            properties.Add(new
+                                            {
+                                                type = propType,
+                                                name = propName,
+                                                value = propValue
+                                            });
+                                        }
                                     }
                                 }
                             }
