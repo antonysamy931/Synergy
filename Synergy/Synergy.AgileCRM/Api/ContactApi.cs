@@ -37,6 +37,11 @@ namespace Synergy.AgileCRM.Api
             return GetContact(AgileCRMConstant.Contacts + "/" + request.Id);
         }
 
+        public GetContactResponse GetContactByEmail(GetContactByEmailRequest request)
+        {
+            return GetContact(AgileCRMConstant.SearchContactByEmail + "/" + request.Email);
+        }
+
         public DeleteContactResponse DeleteContact(DeleteContactRequest request)
         {
             return Delete(AgileCRMConstant.Contacts + "/" + request.Id);

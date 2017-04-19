@@ -139,6 +139,20 @@ namespace Synergy.AgileCRM.Model
         public long Id { get; set; }
     }
 
+    public class GetContactByEmailRequest : SynergyRequest
+    {
+        public GetContactByEmailRequest()
+        {
+        }
+
+        public GetContactByEmailRequest(int userId)
+            : base(userId: userId, api: ApiTypes.AgileCrm, request: "Get Contact by Email")
+        {
+        }
+
+        public string Email { get; set; }
+    }
+
     public class DeleteContactRequest : SynergyRequest
     {
         public DeleteContactRequest()

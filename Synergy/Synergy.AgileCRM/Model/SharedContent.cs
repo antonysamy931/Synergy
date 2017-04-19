@@ -14,5 +14,6 @@ namespace Synergy.AgileCRM.Model
         public const string UpdateContactStarValue = "contacts/edit/add-star";
         public const string UpdateContactTags = "contacts/edit/tags";
         public const string DeleteTags = "contacts/delete/tags";
+        public const string SearchContactByEmail = "contacts/search/email";
     }
 }

@@ -98,18 +98,19 @@ namespace AgileCRM.Test
             //var s = dealApi.GetDeals();
 
             /***************************************************************/
-            //string result = string.Empty;
-            ////const string url = "https://antonysamy.agilecrm.com/dev/api/opportunity";
-            //String encoded = System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("antonysamy931@gmail.com:kesfef51bnhrdqaud0l3siecbv"));
-            //HttpWebRequest request = WebRequest.Create("https://antonysamy.agilecrm.com/dev/api/contacts") as HttpWebRequest;
+            string result = string.Empty;
+            //const string url = "https://antonysamy.agilecrm.com/dev/api/opportunity";
+            String encoded = System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("antonysamy931@gmail.com:kesfef51bnhrdqaud0l3siecbv"));
+            //HttpWebRequest request = WebRequest.Create("https://antonysamy.agilecrm.com/dev/api/contacts/search/email/test@black.com") as HttpWebRequest;
+            HttpWebRequest request = WebRequest.Create("https://antonysamy.agilecrm.com/dev/api/contacts/search?q=jack&page_size=10&type='PERSON'") as HttpWebRequest;
             //string data = "{\"properties\":[{\"type\":\"CUSTOM\",\"name\":\"Test\",\"value\":\"Test custom feed\"}]}";//JsonConvert.SerializeObject(model); //"{\"lead_score\":44,  \"tags\":[\"tag1\", \"tag2\"], \"properties\":[{\"type\":\"SYSTEM\", \"name\":\"email\",\"value\":\"jason123@gmail.com\"}, {\"type\":\"SYSTEM\", \"name\":\"first_name\", \"value\":\"First_name\"}, {\"type\":\"SYSTEM\", \"name\":\"last_name\", \"value\":\"Last_name\"}]}";
             //if (!string.IsNullOrEmpty(data))
             //    request.ContentLength = data.Length;
-            //request.Method = "POST";
-            //request.ContentType = "application/json";
-            //request.Accept = "application/json";
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
 
-            //request.Headers.Add("Authorization", "Basic " + encoded);
+            request.Headers.Add("Authorization", "Basic " + encoded);
 
             //using (Stream webStream = request.GetRequestStream())
             //using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
@@ -117,16 +118,16 @@ namespace AgileCRM.Test
             //    requestWriter.Write(data);
             //}
 
-            //using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-            //{
-            //    Stream dataStream = response.GetResponseStream();
-            //    StreamReader reader = new StreamReader(dataStream);
-            //    result = reader.ReadToEnd();
-
-            //    reader.Close();
-            //    dataStream.Close();
-            //    response.Close();
-            //}
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                result = reader.ReadToEnd();
+                //var Contact = JsonConvert.DeserializeObject<Contact>(result);
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+            }
 
             //DealApi dealapi = new DealApi("kesfef51bnhrdqaud0l3siecbv", "antonysamy931@gmail.com", "https://antonysamy.agilecrm.com/");
             //DealRequest request = new DealRequest()
@@ -195,23 +196,23 @@ namespace AgileCRM.Test
 
             //var constructor = typeof(XmlRpcUrlAttribute).GetConstructor(new[] { typeof(XmlRpcUrlAttribute) });
 
-            var obj = new A()
-            {
-                H = new B()
-                {
-                    T = false
-                }
-            };
+            //var obj = new A()
+            //{
+            //    H = new B()
+            //    {
+            //        T = false
+            //    }
+            //};
 
-            foreach (var prop in obj.GetType().GetProperties())
-            {
-                var type = prop.GetType();
-                var h = prop.GetValue(obj, null);
-                foreach (var item in type.GetProperties())
-                {
-                    var l = item.GetValue(h, null);
-                }
-            }
+            //foreach (var prop in obj.GetType().GetProperties())
+            //{
+            //    var type = prop.GetType();
+            //    var h = prop.GetValue(obj, null);
+            //    foreach (var item in type.GetProperties())
+            //    {
+            //        var l = item.GetValue(h, null);
+            //    }
+            //}
         }
     }
     [XmlRpcUrl("https://yu358.infusionsoft.com:443/api/xmlrpc")]
