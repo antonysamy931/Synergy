@@ -4,7 +4,7 @@ DECLARE @ActivityMonitorBeginDate DATETIME
 
 --SET @ActivityMonitorStartDate = '03/28/2015 23:12:23:323' --CAN SET A VALUE --FORMAT 'MM/DD/YYYY HH:MM:SS:mmm' EG:'03/28/1988 23:12:23:323'
 
-SET @ActivityMonitorStartMonth = 5 --CONSIDER LAST FIVE MONTH ACTIVITIES
+SET @ActivityMonitorStartMonth = 45 --CONSIDER LAST FIVE MONTH ACTIVITIES
 
 IF @ActivityMonitorStartDate <> ''
 BEGIN	
@@ -23,20 +23,20 @@ END
 CREATE TABLE #Record
 (
 	OrderId INT,
-	CreatedDate DATETIME,
-	CustomerId VARCHAR(MAX)
+	BuildDate DATETIME,
+	CustomerId INT
 )
 
 INSERT INTO #Record
-SELECT ord.Id, ord.DateCreated, Acc.DomainId
-FROM [ICN].DBO.[Accounts] AS Acc
+SELECT Ord.OrderID, Ord.BuildDate, Cus.CustomerID
+FROM [Customer] AS Cus
 CROSS APPLY
 (
-	SELECT TOP 1 DateCreated, Id 
-	FROM [ICN.Ordering].dbo.[Order]
-	WHERE CustomerId = acc.DomainId		
-	ORDER BY DateCreated DESC
+	SELECT TOP 1 BuildDate, OrderID 
+	FROM [Order]
+	WHERE CustomerId = Cus.CustomerID		
+	ORDER BY BuildDate DESC
 ) AS Ord
-WHERE Ord.DateCreated < @ActivityMonitorBeginDate
+WHERE Ord.BuildDate < @ActivityMonitorBeginDate
 
 SELECT * FROM #Record
