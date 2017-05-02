@@ -2,7 +2,7 @@ DECLARE @ActivityMonitorStartMonth INT
 DECLARE @ActivityMonitorStartDate NVARCHAR(MAX)
 DECLARE @ActivityMonitorBeginDate DATETIME
 
---SET @ActivityMonitorStartDate = '03/28/2015 23:12:23:323' --CAN SET A VALUE --FORMAT 'MM/DD/YYYY HH:MM:SS:mmm' EG:'03/28/1988 23:12:23:323'
+SET @ActivityMonitorStartDate = '2013-01-30 19:50:26.037' --CAN SET A VALUE --FORMAT 'MM/DD/YYYY HH:MM:SS:mmm' EG:'03/28/1988 23:12:23:323'
 
 SET @ActivityMonitorStartMonth = 45 --CONSIDER LAST FIVE MONTH ACTIVITIES
 
@@ -94,7 +94,7 @@ BEGIN TRY
 	(SELECT DISTINCT CustomerId FROM #Record)
 	
 	--DELETE USERROLES 
-	DELETE FROM [UserInRoles] WHERE UserID IN
+	DELETE FROM [UsersInRoles] WHERE UserID IN
 	(SELECT U.UserID FROM [User] AS U
 	JOIN #Record AS R ON U.CustomerID = R.CustomerId)
 	
