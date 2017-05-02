@@ -77,11 +77,11 @@ BEGIN TRY
 ------------------------------------------------------------------------
 -- DELETE CUSTOMER RELATED TABLES
 ------------------------------------------------------------------------	
-	-- DELETE CUSTOMER PAYMENT BY CUSTOMERID
-	DELETE FROM [CustomerPayment]
-	(SELECT DISTINCT CustomerId FROM #Record)
-	
-	--DELETE ORDER BY CUSTOMER
+	-- DELETE CUSTOMER PAYMENT BY CUSTOMERID	
+	DELETE FROM [CustomerPayment] WHERE CustomerID IN
+	(SELECT DISTINCT CustomerId FROM #Record)	
+
+	--DELETE ORDER BY CUSTOMER	
 	DELETE FROM [Order] WHERE CustomerID IN
 	(SELECT DISTINCT CustomerId FROM #Record)
 	
@@ -132,4 +132,4 @@ BEGIN CATCH
 	ROLLBACK TRAN [CLEAN]
 END CATCH
 
-SELECT * FROM #Record
+--SELECT * FROM #Record
