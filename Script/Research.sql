@@ -39,6 +39,35 @@ CROSS APPLY
 ) AS Ord
 WHERE Ord.BuildDate < @ActivityMonitorBeginDate
 
+-----------------------------------------------------------------
+-- NON ACTIVE CUSTOMER ADDED TO CLEAN PROCESS
+-----------------------------------------------------------------
+IF OBJECT_ID('tempdb..#CustomerRecord') IS NOT NULL
+BEGIN
+	DROP TABLE #CustomerRecord
+END
+
+CREATE TABLE #CustomerRecord
+(	
+	CustomerId INT
+)
+
+INSERT INTO #CustomerRecord
+SELECT C.CustomerID FROM [Customer] AS C
+WHERE C.CustomerID NOT IN(
+SELECT DISTINCT CustomerID FROM [Order] 
+WHERE CustomerID IS NOT NULL) AND C.CreatedDate < @ActivityMonitorBeginDate
+
+DECLARE @CustomerCount INT
+SELECT @CustomerCount = COUNT('') FROM #CustomerRecord
+
+IF(@CustomerCount > 0)
+BEGIN
+	INSERT INTO #Record
+	SELECT NULL, NULL, CUS.CustomerId FROM #CustomerRecord AS CUS
+END
+
+
 -- TRANSACTION BEGIN
 BEGIN TRAN [CLEAN]
 
@@ -384,6 +413,8 @@ BEGIN TRY
 	(SELECT DISTINCT CustomerId FROM #Record)
 	
 	PRINT 'DELETE ''CustomOrder'' END. ' + CONVERT(VARCHAR(40),GETUTCDATE(),131)
+	
+	
 	
 	-- COMMIT THE CHANGES IF NO ERROW HAPPENDS
 	COMMIT TRAN [CLEAN]
